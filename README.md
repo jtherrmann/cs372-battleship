@@ -4,8 +4,7 @@
 
 User stories, from highest to lowest priority:
 
-- As a player, I want the ability to choose an initial configuration for my
-  ships.
+- As a player, I want to choose an initial configuration for my ships.
   - The computer should automatically restrict me to legal configurations, e.g.
     no diagonal placement, no overlapping ships, etc.
 - As a player, I want the full range of ship sizes.
@@ -14,10 +13,10 @@ User stories, from highest to lowest priority:
   - Cruiser - 3 holes
   - Battleship - 4 holes
   - Carrier - 5 holes
-- As a player, I want the ability to choose where to attack on the board.
+- As a player, I want to choose where to attack on the board.
   - I should automatically see whether it was a hit or a miss and the computer
     should store this information for later reference.
-- As a player, I want to be able to check the current status of the game.
+- As a player, I want to check the current status of the game.
   - I should be able to see my own ship configuration and the hits and misses
     that have been made on my grid, but I should only be able to see the hits
     and misses that have been made on my opponent’s grid (but not their ship
@@ -32,12 +31,11 @@ User stories, from highest to lowest priority:
     only be confirmed to work using automated tests. However, we would
     eventually like a simple textual interface with which to test the features
     interactively.
-- As a player, I want to be able to play against another player on a single
-  computer.
+- As a player, I want to play against another player on a single computer.
   - As an extension of the text-based interface idea, we also want to be able
     to take turns at the keyboard in order to play against another human (or
     just play against ourselves).
-- As a player, I want to be able to play against a remote opponent.
+- As a player, I want to play against a remote opponent.
   - As players / project owners we would eventually like to be able to play
     against a remote opponent, preferably over an internet connection. This is
     important because it allows us to play against friends at any time and
@@ -50,7 +48,7 @@ User stories, from highest to lowest priority:
     implement a GUI when we implement networked multiplayer, because we could
     convert the game to a web app. As players / project owners, we like this
     idea.
-- As a player, I want the ability to play against the computer.
+- As a player, I want to play against the computer.
   - Players / project owners and developers agree this can be a low-priority,
     long-term goal. The developers do not know much about AI anyway.
 - As a player, I want to play in fully 3-D virtual reality.
