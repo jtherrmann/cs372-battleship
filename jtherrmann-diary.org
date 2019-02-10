@@ -1,0 +1,13 @@
+* Jake Herrmann project diary
+** Fri Feb 8 2019
+*** 3:30 pm - 4:30 pm (in class)
+- Read the articles linked in the assignment description.
+- Brainstormed user stories.
+- Had a conversation about each story from the perspective of both project
+  owners / players and developers.
+- Prioritized the user stories (as project owners).
+** Sun Feb 10 2019
+*** 10:50 am - 11:55 am
+- Set up a GitHub repo for the project.
+- Recorded our prioritized user stories to the README.
+- Found my family's Battleship game and reviewed the rules.
