@@ -11,3 +11,5 @@
 - Set up a GitHub repo for the project.
 - Recorded our prioritized user stories to the README.
 - Found my family's Battleship game and reviewed the rules.
+*** 12:10 pm - 12:25 pm
+- Revised some user stories.
