@@ -26,12 +26,23 @@ User stories, from highest to lowest priority:
   - Ships should sink when all of their holes have been hit.
 - As a player, I want to win or lose when appropriate.
   - A player should lose when all of their ships have been sunk.
-- As a player, I want the ability to play against another human player.
+- As a player, I want a text-based interface in order to test these features.
+  - As players / project owners, we are most interested in seeing a working
+    implementation of the game logic, even if it has no user interface and can
+    only be confirmed to work using automated tests. However, we would
+    eventually like a simple textual interface with which to test the features
+    interactively.
+- As a player, I want to be able to play against another player on a single
+  computer.
+  - As an extension of the text-based interface idea, we also want to be able
+    to take turns at the keyboard in order to play against another human (or
+    just play against ourselves).
+- As a player, I want to be able to play against a remote opponent.
   - As players / project owners we would eventually like to be able to play
-    against a remote opponent, preferably over an internet connection. As
-    developers, we respond that it would be easier to allow two players to play
-    against each other on the same computer, at least initially. As players /
-    project owners we respond that this would be an acceptable first version.
+    against a remote opponent, preferably over an internet connection. This is
+    important because it allows us to play against friends at any time and
+    because it makes it easier to avoid seeing your opponent's view of the game
+    (which will be a limitation of using a single computer).
 - As a player, I would eventually like a GUI.
   - As players / project owners we are more interested in seeing a fully
     functioning battleship game with a simple text interface before seeing any
