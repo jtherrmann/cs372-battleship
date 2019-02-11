@@ -68,3 +68,28 @@ User stories, from highest to lowest priority:
   - Unknown difficulty; probably months or years.
   - All involved parties agree this can be a very low-priority goal for the
     very distant future.
+
+## Initial design
+
+First we will write classes and functions to implement the core game logic.
+Assuming an object-oriented design, the game components could be separated into
+objects such as grids and ships. For example, a ship object could store a data
+member representing the ship's number of holes (2, 3, 4, or 5) and another data
+member representing the ship's name (Destroyer, Submarine, Cruiser, Battleship,
+or Carrier). However, the game may be simple enough that we don't need a fully
+object-oriented design.
+
+Players need to be able to check the status of the game, which means they need
+to see the state of each grid. But each grid should have a "full" view and a
+"partial" view, where the full view presents the locations of hits, misses, and
+ships, and can only be seen by the player to which the grid belongs, while the
+partial view presents only hits and misses and can be seen by the opponent.
+Perhaps each grid object will have a member function for retrieving a full view
+and another member function for retrieving a partial view.
+
+At first we will just write unit tests for each function in order to test the
+game, but given enough time we will also implement a simple text-based
+interface so that two people can play a game on a single computer (or the same
+person can play against themselves). If we complete all of the above items, we
+will start thinking about how to convert the game into a web app with a GUI and
+multiplayer capabilities.
