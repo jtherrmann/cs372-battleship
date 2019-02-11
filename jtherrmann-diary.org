@@ -13,3 +13,9 @@
 - Found my family's Battleship game and reviewed the rules.
 *** 12:10 pm - 12:25 pm
 - Revised some user stories.
+*** Afternoon and evening
+- We agreed on difficulty ratings over Slack. Oddly enough, we only used 1 and
+  8 hr. ratings. I'm guessing some of the 1 hr. items might become 2 or 4 hours
+  realistically, when you account for writing tests, refactoring, etc.
+- We also agreed on an initial design based on our higher priority user
+  stories.
