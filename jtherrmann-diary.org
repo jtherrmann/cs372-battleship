@@ -19,3 +19,6 @@
   realistically, when you account for writing tests, refactoring, etc.
 - We also agreed on an initial design based on our higher priority user
   stories.
+** Mon Feb 11 2019
+*** 12:50 pm - 1:05 pm
+- We met on campus to further discuss the initial design and presentation.
