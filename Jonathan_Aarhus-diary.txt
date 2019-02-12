@@ -1,0 +1,18 @@
+cs372 UAF spring 2019
+
+Developer Diary for Battleship Project
+
+By Jonathan Aarhus
+
+February 11
+
+We've mostly gone over brainstorming of user stories and ranked them by priory of completion and time
+required to complete. The gist of this is that we need to focus on the back-end of code that codifies
+the rules of the game so that we can work on the user interface later. If we get to the user intyerface
+we will probabaly start with a simple text based UI that will function as a test for the backed. Then, 
+time permitting, we can move on to implementing of two player version that can work over the web.
+
+We've also established the we can meet in persion to do pair programming on Tuesdays and Thursdays as well
+as the weekends. By my estimation we would need to work together for at least an hour ber session to meet our
+requirements.
+
