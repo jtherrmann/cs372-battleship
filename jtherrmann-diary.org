@@ -22,3 +22,41 @@
 ** Mon Feb 11 2019
 *** 12:50 pm - 1:05 pm
 - We met on campus to further discuss the initial design and presentation.
+** Thu Feb 14 2019
+*** 1:00 pm - 2:00 pm
+We met on campus and discussed the initial design in greater detail. First we
+discussed which languages and technologies we should use. We decided that in
+order to leave open the possibility of converting our game to a web app (if we
+make it that far), the best choice for the backend would be Python because it
+is an easy language to use for server-side scripting. The frontend would be the
+usual JavaScript/HTML/CSS. Python is also a good choice because I already know
+Python and Jonathan was already planning to learn it soon.
+
+Then we started discussing how to implement the core game logic. Some ideas we
+came up with:
+
+- ship objects, each storing:
+  - location (as coordinates?)
+  - name
+  - length? (perhaps unnecessary)
+  - which holes have been hit
+- sorted sequence of hits & misses (red and white pegs)
+- use artificial/contrived (what is correct terminology?) games to test
+  functionality such as winning & losing when appropriate
+  
+We tried to avoid getting carried away planning out every detail and instead
+concentrated on the big picture of the game logic. We also tried to consider
+what would be the minimum functionality that we could test for the first few
+user stories. For example, for the first two user stories, we decided we could
+probably just test whether ship objects can be constructed with given location,
+name, and length.
+
+One thing I'm thinking about is how the initial planning stage of this (or any)
+project relates to TDD. Perhaps we're thinking too far ahead as far as TDD is
+concerned. On the other hand, I would feel uncomfortable if we didn't at least
+have a rough idea of the big picture, to ensure that we're not coding ourselves
+into a corner. I also feel like part of software development is just developing
+the experience and instincts necessary to immediately recognize problematic
+design and potential dead-end and time-wasting decisions. But I don't feel like
+I've worked on enough big projects (not that this is a very big project) to
+have developed those instincts yet.
