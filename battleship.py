@@ -5,4 +5,7 @@ WEST = 'W'
 
 
 class Ship:
-    pass
+    def __init__(self, aft_location, direction, name):
+        self._aft_location = aft_location
+        self._direction = direction
+        self._name = name
