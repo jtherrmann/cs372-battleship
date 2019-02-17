@@ -16,7 +16,20 @@ class BattleshipTest(unittest.TestCase):
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
-    def test_ship_on_grid(self):
+    def test_aft_on_grid(self):
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((-1, 5), WEST, SUBMARINE)
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((12, 5), WEST, SUBMARINE)
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((5, -3), WEST, SUBMARINE)
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((5, 15), WEST, SUBMARINE)
+
+    def test_bow_on_grid(self):
         with self.assertRaises(ShipOutOfGridError):
             Ship((0, 5), WEST, SUBMARINE)
 
