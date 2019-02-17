@@ -3,6 +3,8 @@ SOUTH = 'S'
 EAST = 'E'
 WEST = 'W'
 
+SUBMARINE = 'Submarine'
+
 
 class IllegalPositionError(Exception):
     pass
