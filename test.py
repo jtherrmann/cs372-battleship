@@ -1,6 +1,6 @@
 import unittest
 
-from battleship import EAST, WEST, Ship, ShipOutOfGridError
+from battleship import NORTH, SOUTH, EAST, WEST, Ship, ShipOutOfGridError
 
 
 class BattleshipTest(unittest.TestCase):
@@ -17,6 +17,15 @@ class BattleshipTest(unittest.TestCase):
     def test_ship_on_grid(self):
         with self.assertRaises(ShipOutOfGridError):
             Ship((0, 5), WEST, 'Submarine')
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((8, 1), EAST, 'Submarine')
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((3, 0), NORTH, 'Submarine')
+
+        with self.assertRaises(ShipOutOfGridError):
+            Ship((3, 8), SOUTH, 'Submarine')
 
 
 if __name__ == '__main__':
