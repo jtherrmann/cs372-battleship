@@ -60,3 +60,23 @@ the experience and instincts necessary to immediately recognize problematic
 design and potential dead-end and time-wasting decisions. But I don't feel like
 I've worked on enough big projects (not that this is a very big project) to
 have developed those instincts yet.
+** Sat Feb 16
+*** 2:15 pm - 3:45 pm
+We met for our first pair programming session. We didn't finish the first user
+story, which we estimated would take 1 hour, so we're moving at a slower
+velocity than anticipated (which is fine). I do think pair programming felt
+slower than working by myself, just because it involves physically talking to
+another person and agreeing on design decisions, which is slower than just
+translating my own thoughts into code. I also wouldn't necessarily say the code
+came out better than it would have had either of us been working alone.
+However, it was not a negative experience, and we didn't have any difficulty
+agreeing on what tests to write or how to make them pass.
+
+I am enjoying practicing TDD and I find that it does help create cleaner, more
+concise code that only does exactly what it's supposed to, because TDD doesn't
+allow you to prematurely generalize any piece of code.
+
+Attempting to write clean note, particularly using proper variable names, as
+well as using version control, are not new to me, so I don't have much to say
+about those topics; except that I like that TDD is teaching me to commit more
+frequently.
