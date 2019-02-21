@@ -23,12 +23,14 @@ class Ship:
         self._direction = direction
         self._name = name
         self._length = self._lengths[self._name]
+        self._validate_coordinates()
 
-        for coordinate in self._aft_location:
-            if not 0 <= coordinate <= 9:
-                raise ShipOutOfGridError()
+    def _validate_coordinates(self):
+        self._validate_coordinate_pair(self._aft_location)
+        self._validate_coordinate_pair(self._get_bow_location())
 
-        for coordinate in self._get_bow_location():
+    def _validate_coordinate_pair(self, pair):
+        for coordinate in pair:
             if not 0 <= coordinate <= 9:
                 raise ShipOutOfGridError()
 
