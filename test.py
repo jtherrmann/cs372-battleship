@@ -1,8 +1,15 @@
 import unittest
 
 from battleship import (
-    NORTH, SOUTH, EAST, WEST, SUBMARINE, Ship, ShipOutOfGridError
+    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOutOfGridError
 )
+
+
+class GridTestCase(unittest.TestCase):
+
+    def test_create_grid(self):
+        grid = Grid()
+        self.assertEqual(grid._ships, [])
 
 
 class ShipTestCase(unittest.TestCase):
