@@ -14,6 +14,10 @@ class ShipOutOfGridError(IllegalPositionError):
     pass
 
 
+class ShipsOverlapError(IllegalPositionError):
+    pass
+
+
 class Grid:
 
     def __init__(self):

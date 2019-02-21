@@ -1,7 +1,8 @@
 import unittest
 
 from battleship import (
-    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOutOfGridError
+    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOutOfGridError,
+    ShipsOverlapError
 )
 
 # TODO: fix names
@@ -26,6 +27,22 @@ class GridTestCase(unittest.TestCase):
         self.assertEqual(grid._ships, [ships[0], ships[1]])
         grid.add_ship(ships[2])
         self.assertEqual(grid._ships, [ships[0], ships[1], ships[2]])
+
+    def test_no_ships_overlap(self):
+        grid = Grid()
+        grid.add_ship(Ship((2, 5), EAST, SUBMARINE))
+
+        with self.assertRaises(ShipsOverlapError):
+            grid.add_ship(Ship((0, 5), EAST, SUBMARINE))
+
+        with self.assertRaises(ShipsOverlapError):
+            grid.add_ship(Ship((4, 5), WEST, SUBMARINE))
+
+        with self.assertRaises(ShipsOverlapError):
+            grid.add_ship(Ship((2, 7), NORTH, SUBMARINE))
+
+        with self.assertRaises(ShipsOverlapError):
+            grid.add_ship(Ship((2, 3), SOUTH, SUBMARINE))
 
 
 class ShipTestCase(unittest.TestCase):
