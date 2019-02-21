@@ -28,6 +28,10 @@ class Ship:
             if not 0 <= coordinate <= 9:
                 raise ShipOutOfGridError()
 
+        for coordinate in self.get_bow_location():
+            if not 0 <= coordinate <= 9:
+                raise ShipOutOfGridError()
+
     def get_bow_location(self):
         if self._direction == NORTH:
             return self._aft_location[0], self._aft_location[1] - self._length
