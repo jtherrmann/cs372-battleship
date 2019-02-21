@@ -44,10 +44,10 @@ class BattleshipTest(unittest.TestCase):
 
     def test_get_bow_location(self):
         self.assertEqual(
-            Ship((0, 0), NORTH, SUBMARINE).get_bow_location(), (0, 3)
+            Ship((0, 0), NORTH, SUBMARINE).get_bow_location(), (0, -3)
         )
         self.assertEqual(
-            Ship((0, 0), SOUTH, SUBMARINE).get_bow_location(), (0, -3)
+            Ship((0, 0), SOUTH, SUBMARINE).get_bow_location(), (0, 3)
         )
         self.assertEqual(
             Ship((0, 0), EAST, SUBMARINE).get_bow_location(), (3, 0)
