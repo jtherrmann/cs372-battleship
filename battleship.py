@@ -19,6 +19,9 @@ class Grid:
     def __init__(self):
         self._ships = []
 
+    def add_ship(self, ship):
+        self._ships.append(ship)
+
 
 class Ship:
 
