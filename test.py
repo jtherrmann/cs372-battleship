@@ -11,6 +11,20 @@ class GridTestCase(unittest.TestCase):
         grid = Grid()
         self.assertEqual(grid._ships, [])
 
+    def test_add_ships(self):
+        grid = Grid()
+        ships = [
+            Ship((0, 0), EAST, SUBMARINE),
+            Ship((5, 5), WEST, SUBMARINE),
+            Ship((9, 9), WEST, SUBMARINE)
+        ]
+        grid.add_ship(ships[0])
+        self.assertEqual(grid._ships, [ships[0]])
+        grid.add_ship(ships[1])
+        self.assertEqual(grid._ships, [ships[0], ships[1]])
+        grid.add_ship(ships[2])
+        self.assertEqual(grid._ships, [ships[0], ships[1], ships[2]])
+
 
 class ShipTestCase(unittest.TestCase):
 
