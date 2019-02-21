@@ -42,6 +42,20 @@ class BattleshipTest(unittest.TestCase):
         with self.assertRaises(ShipOutOfGridError):
             Ship((3, 8), SOUTH, SUBMARINE)
 
+    def test_get_bow_location(self):
+        self.assertEqual(
+            Ship((0, 0), NORTH, SUBMARINE).get_bow_location(), (0, 3)
+        )
+        self.assertEqual(
+            Ship((0, 0), SOUTH, SUBMARINE).get_bow_location(), (0, -3)
+        )
+        self.assertEqual(
+            Ship((0, 0), EAST, SUBMARINE).get_bow_location(), (3, 0)
+        )
+        self.assertEqual(
+            Ship((0, 0), WEST, SUBMARINE).get_bow_location(), (-3, 0)
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
