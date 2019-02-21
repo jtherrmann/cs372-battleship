@@ -30,9 +30,9 @@ class Ship:
 
     def get_bow_location(self):
         if self._direction == NORTH:
-            return self._aft_location[0], self._aft_location[1] + self._length
-        if self._direction == SOUTH:
             return self._aft_location[0], self._aft_location[1] - self._length
+        if self._direction == SOUTH:
+            return self._aft_location[0], self._aft_location[1] + self._length
         if self._direction == EAST:
             return self._aft_location[0] + self._length, self._aft_location[1]
         if self._direction == WEST:
