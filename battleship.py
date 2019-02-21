@@ -14,6 +14,12 @@ class ShipOutOfGridError(IllegalPositionError):
     pass
 
 
+class Grid:
+
+    def __init__(self):
+        self._ships = []
+
+
 class Ship:
 
     _lengths = {SUBMARINE: 3}
