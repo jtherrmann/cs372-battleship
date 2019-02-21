@@ -5,9 +5,9 @@ from battleship import (
 )
 
 
-class BattleshipTest(unittest.TestCase):
+class ShipTestCase(unittest.TestCase):
 
-    def test_initial_configuration(self):
+    def test_create_ship(self):
         aft_location = (3, 5)
         direction = EAST
         name = SUBMARINE
