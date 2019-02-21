@@ -4,6 +4,8 @@ from battleship import (
     NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOutOfGridError
 )
 
+# TODO: fix names
+
 
 class GridTestCase(unittest.TestCase):
 
