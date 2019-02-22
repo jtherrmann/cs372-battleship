@@ -1,11 +1,9 @@
 import unittest
 
 from battleship import (
-    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOutOfGridError,
+    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOffGridError,
     ShipsOverlapError
 )
-
-# TODO: fix names
 
 
 class GridTestCase(unittest.TestCase):
@@ -48,52 +46,52 @@ class GridTestCase(unittest.TestCase):
 class ShipTestCase(unittest.TestCase):
 
     def test_create_ship(self):
-        aft_location = (3, 5)
+        aft_point = (3, 5)
         direction = EAST
         name = SUBMARINE
-        ship = Ship(aft_location, direction, name)
-        self.assertEqual(ship._aft_location, aft_location)
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_aft_on_grid(self):
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((-1, 5), WEST, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((12, 5), WEST, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((5, -3), WEST, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((5, 15), WEST, SUBMARINE)
 
     def test_bow_on_grid(self):
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((0, 5), WEST, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((8, 1), EAST, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((3, 0), NORTH, SUBMARINE)
 
-        with self.assertRaises(ShipOutOfGridError):
+        with self.assertRaises(ShipOffGridError):
             Ship((3, 8), SOUTH, SUBMARINE)
 
-    def test_get_bow_location(self):
+    def test_get_bow_point(self):
         self.assertEqual(
-            Ship((0, 5), NORTH, SUBMARINE)._get_bow_location(), (0, 2)
+            Ship((0, 5), NORTH, SUBMARINE)._get_bow_point(), (0, 2)
         )
         self.assertEqual(
-            Ship((0, 5), SOUTH, SUBMARINE)._get_bow_location(), (0, 8)
+            Ship((0, 5), SOUTH, SUBMARINE)._get_bow_point(), (0, 8)
         )
         self.assertEqual(
-            Ship((5, 0), EAST, SUBMARINE)._get_bow_location(), (8, 0)
+            Ship((5, 0), EAST, SUBMARINE)._get_bow_point(), (8, 0)
         )
         self.assertEqual(
-            Ship((5, 0), WEST, SUBMARINE)._get_bow_location(), (2, 0)
+            Ship((5, 0), WEST, SUBMARINE)._get_bow_point(), (2, 0)
         )
 
     def test_get_points(self):

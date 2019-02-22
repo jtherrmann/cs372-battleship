@@ -13,7 +13,7 @@ class IllegalPositionError(Exception):
     pass
 
 
-class ShipOutOfGridError(IllegalPositionError):
+class ShipOffGridError(IllegalPositionError):
     pass
 
 
@@ -46,34 +46,34 @@ class Ship:
 
     _lengths = {SUBMARINE: 3}
 
-    def __init__(self, aft_location, direction, name):
-        self._aft_location = aft_location
+    def __init__(self, aft_point, direction, name):
+        self._aft_point = aft_point
         self._direction = direction
         self._name = name
         self._length = self._lengths[self._name]
-        self._validate_coordinates()
+        self._validate_location()
 
     def get_points(self):
         return (self._get_point(i) for i in range(self._length))
 
-    def _validate_coordinates(self):
-        self._validate_coordinate_pair(self._aft_location)
-        self._validate_coordinate_pair(self._get_bow_location())
+    def _validate_location(self):
+        self._validate_point(self._aft_point)
+        self._validate_point(self._get_bow_point())
 
-    def _validate_coordinate_pair(self, pair):
+    def _validate_point(self, pair):
         for coordinate in pair:
             if not 0 <= coordinate <= 9:
-                raise ShipOutOfGridError()
+                raise ShipOffGridError()
 
-    def _get_bow_location(self):
+    def _get_bow_point(self):
         return self._get_point(self._length)
 
     def _get_point(self, offset):
         if self._direction == NORTH:
-            return self._aft_location[0], self._aft_location[1] - offset
+            return self._aft_point[0], self._aft_point[1] - offset
         if self._direction == SOUTH:
-            return self._aft_location[0], self._aft_location[1] + offset
+            return self._aft_point[0], self._aft_point[1] + offset
         if self._direction == EAST:
-            return self._aft_location[0] + offset, self._aft_location[1]
+            return self._aft_point[0] + offset, self._aft_point[1]
         if self._direction == WEST:
-            return self._aft_location[0] - offset, self._aft_location[1]
+            return self._aft_point[0] - offset, self._aft_point[1]
