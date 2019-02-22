@@ -23,8 +23,20 @@ class Grid:
     def __init__(self):
         self._ships = []
 
-    def add_ship(self, ship):
-        self._ships.append(ship)
+    def add_ship(self, new_ship):
+        self._validate_ship(new_ship)
+        self._ships.append(new_ship)
+
+    def _validate_ship(self, new_ship):
+        for ship in self._ships:
+            if self._ships_intersect(ship, new_ship):
+                raise ShipsOverlapError
+
+    def _ships_intersect(self, ship1, ship2):
+        for point in ship1.get_points():
+            if point in ship2.get_points():
+                return True
+        return False
 
 
 class Ship:
