@@ -96,6 +96,24 @@ class ShipTestCase(unittest.TestCase):
             Ship((5, 0), WEST, SUBMARINE)._get_bow_location(), (2, 0)
         )
 
+    def test_get_points(self):
+        self.assertEqual(
+            tuple(Ship((0, 0), EAST, SUBMARINE).get_points()),
+            ((0, 0), (1, 0), (2, 0))
+        )
+        self.assertEqual(
+            tuple(Ship((0, 0), SOUTH, SUBMARINE).get_points()),
+            ((0, 0), (0, 1), (0, 2))
+        )
+        self.assertEqual(
+            tuple(Ship((9, 0), WEST, SUBMARINE).get_points()),
+            ((9, 0), (8, 0), (7, 0))
+        )
+        self.assertEqual(
+            tuple(Ship((0, 9), NORTH, SUBMARINE).get_points()),
+            ((0, 9), (0, 8), (0, 7))
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

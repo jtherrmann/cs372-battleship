@@ -38,6 +38,9 @@ class Ship:
         self._length = self._lengths[self._name]
         self._validate_coordinates()
 
+    def get_points(self):
+        pass
+
     def _validate_coordinates(self):
         self._validate_coordinate_pair(self._aft_location)
         self._validate_coordinate_pair(self._get_bow_location())
