@@ -6,6 +6,9 @@ WEST = 'W'
 SUBMARINE = 'Submarine'
 
 
+# TODO: use static methods
+
+
 class IllegalPositionError(Exception):
     pass
 
