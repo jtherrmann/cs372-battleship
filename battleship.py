@@ -39,7 +39,26 @@ class Ship:
         self._validate_coordinates()
 
     def get_points(self):
-        pass
+        if self._direction == NORTH:
+            return (
+                (self._aft_location[0], self._aft_location[1] - i)
+                for i in range(self._length)
+            )
+        if self._direction == SOUTH:
+            return (
+                (self._aft_location[0], self._aft_location[1] + i)
+                for i in range(self._length)
+            )
+        if self._direction == EAST:
+            return (
+                (self._aft_location[0] + i, self._aft_location[1])
+                for i in range(self._length)
+            )
+        if self._direction == WEST:
+            return (
+                (self._aft_location[0] - i, self._aft_location[1])
+                for i in range(self._length)
+            )
 
     def _validate_coordinates(self):
         self._validate_coordinate_pair(self._aft_location)
