@@ -42,6 +42,16 @@ class GridTestCase(unittest.TestCase):
         with self.assertRaises(ShipsOverlapError):
             grid.add_ship(Ship((2, 3), SOUTH, SUBMARINE))
 
+    def test_attack(self):
+        grid = Grid()
+        grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
+
+        self.assertEqual(grid.attack(0, 0), True)
+        self.assertEqual(grid.attack(1, 0), True)
+        self.assertEqual(grid.attack(2, 0), True)
+        self.assertEqual(grid.attack(3, 0), False)
+        self.assertEqual(grid.attack(0, 1), False)
+
 
 class ShipTestCase(unittest.TestCase):
 

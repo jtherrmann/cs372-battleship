@@ -26,6 +26,9 @@ class Grid:
     def __init__(self):
         self._ships = []
 
+    def attack(self, x, y):
+        pass
+
     def add_ship(self, new_ship):
         self._validate_ship(new_ship)
         self._ships.append(new_ship)
