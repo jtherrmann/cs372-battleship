@@ -1,7 +1,7 @@
 import unittest
 
 from battleship import (
-    NORTH, SOUTH, EAST, WEST, SUBMARINE, Grid, Ship, ShipOffGridError,
+    NORTH, SOUTH, EAST, WEST, SUBMARINE, Peg, Grid, Ship, ShipOffGridError,
     ShipsOverlapError
 )
 
@@ -51,6 +51,15 @@ class GridTestCase(unittest.TestCase):
         self.assertEqual(grid.attack(2, 0), True)
         self.assertEqual(grid.attack(3, 0), False)
         self.assertEqual(grid.attack(0, 1), False)
+
+        self.assertEqual(
+            grid._pegs,
+            [Peg(0, 0, True),
+             Peg(1, 0, True),
+             Peg(2, 0, True),
+             Peg(3, 0, False),
+             Peg(0, 1, False)]
+        )
 
 
 class ShipTestCase(unittest.TestCase):
