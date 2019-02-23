@@ -1,3 +1,6 @@
+from collections import namedtuple
+
+
 NORTH = 'N'
 SOUTH = 'S'
 EAST = 'E'
@@ -6,7 +9,9 @@ WEST = 'W'
 SUBMARINE = 'Submarine'
 
 
-# TODO: use static methods
+# TODO:
+# - use static methods
+# - use namedtuples for points
 
 
 class IllegalPositionError(Exception):
@@ -21,22 +26,21 @@ class ShipsOverlapError(IllegalPositionError):
     pass
 
 
-class Peg:
-
-    def __init__(self, x, y, is_hit):
-        self._x = x
-        self._y = y
-        self._is_hit = is_hit
+Peg = namedtuple('Peg', ('x', 'y', 'is_hit'))
 
 
 class Grid:
 
     def __init__(self):
         self._ships = []
-        self._pegs = None
+        self._pegs = []
 
     def attack(self, x, y):
-        return any((x, y) in ship.get_points() for ship in self._ships)
+        peg = Peg(
+            x, y, any((x, y) in ship.get_points() for ship in self._ships)
+        )
+        self._pegs.append(peg)
+        return peg.is_hit
 
     def add_ship(self, new_ship):
         self._validate_ship(new_ship)
