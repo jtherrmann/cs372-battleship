@@ -27,7 +27,7 @@ class Grid:
         self._ships = []
 
     def attack(self, x, y):
-        pass
+        return any((x, y) in ship.get_points() for ship in self._ships)
 
     def add_ship(self, new_ship):
         self._validate_ship(new_ship)
