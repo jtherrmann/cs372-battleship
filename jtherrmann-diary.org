@@ -80,3 +80,42 @@ Attempting to write clean note, particularly using proper variable names, as
 well as using version control, are not new to me, so I don't have much to say
 about those topics; except that I like that TDD is teaching me to commit more
 frequently.
+** Thu Feb 21
+*** 1:15 pm - 4:30 pm
+We met for our second pair programming session and finished our first user
+story. I believe we've pair programmed for 4 hr 45 min so far and we had only
+estimated the first user story would take 1 hour. So we are clearly far behind
+our projected velocity. But I am hopeful that we will start to speed up now
+that the initial design is starting to take shape.
+
+Having comprehensive tests is very nice because it has already allowed us to
+refactor to make the code much cleaner, e.g. by renaming variables and
+extracting helper functions. One thing I've wondered about is whether we are
+supposed to write a unit test for literally every single function or method.
+Sometimes this seems pointless, e.g. if we just want to write a very small
+helper method that will only be used as part of another method that already has
+a unit test. In these cases, we have tended toward not writing tests when they
+seem totally useless.
+
+Another thing I'm not sure about is whether we are supposed to calculate the
+total time we've worked (for the purpose of calculating project velocity) by
+calculating the total time we've spent pair programming (4 hr 45 min), or by
+calculating the total time /each/ of us has spent on the project (which would
+be 4 hr 45 min each, so 9 hr 30 min total).
+** Fri Feb 22
+*** 3:25 pm - 4:35 pm
+We did a mix of pair programming and just working side-by-side, so we could
+consult with each other on design decisions, technical difficulties, etc. We
+finished the third user story and added tests for the second; Jonathan was
+working on the second while I worked on the third, but he was having some
+issues with getting a Python IDE set up, since he is still learning Python.
+
+I think development is going more quickly now that the first user story is done
+and we have a better idea of how the game will work. We've now been pair
+programming for about 5 hr 45 min and have finished 2.5 user stories, giving us
+a project velocity of about 0.44 user stories / hour. Given that each of the
+user stories we've worked on so far has been estimated at 1 hr, and all of the
+upcoming ones are also estimated at 1 hr, we are behind our expected velocity.
+I don't think we will make up all of the difference, but looking ahead I am
+hopeful that some of the remaining user stories could take less than an hour,
+which would help make up some of the difference.
