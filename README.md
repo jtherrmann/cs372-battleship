@@ -6,26 +6,18 @@ User stories, from highest to lowest priority:
 
 (Rankings are on the 1, 2, 4, or 8 hr. scale, but we only needed 1 and 8.)
 
-### Done
-
-- As a player, I want to choose an initial configuration for my ships.
+- As a player, I want to choose an initial configuration for my ships. (DONE)
   - 1 hr.
   - The computer should automatically restrict me to legal configurations, e.g.
     no diagonal placement, no overlapping ships, etc.
-
-### In progress
-
-- As a player, I want the full range of ship sizes.
+- As a player, I want the full range of ship sizes. (IN PROGRESS)
   - 1 hr.
   - Destroyer - 2 holes
   - Submarine - 3 holes
   - Cruiser - 3 holes
   - Battleship - 4 holes
   - Carrier - 5 holes
-
-### TODO
-
-- As a player, I want to choose where to attack on the board.
+- As a player, I want to choose where to attack on the board. (DONE)
   - 1 hr.
   - I should automatically see whether it was a hit or a miss and the computer
     should store this information for later reference.
