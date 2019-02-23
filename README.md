@@ -6,35 +6,21 @@ User stories, from highest to lowest priority:
 
 (Rankings are on the 1, 2, 4, or 8 hr. scale, but we only needed 1 and 8.)
 
-### Done
-
-- As a player, I want to choose an initial configuration for my ships.
+- As a player, I want to choose an initial configuration for my ships. (DONE)
   - 1 hr.
   - The computer should automatically restrict me to legal configurations, e.g.
     no diagonal placement, no overlapping ships, etc.
-
-### In progress
-
-- As a player, I want the full range of ship sizes.
+- As a player, I want the full range of ship sizes. (IN PROGRESS)
   - 1 hr.
   - Destroyer - 2 holes
   - Submarine - 3 holes
   - Cruiser - 3 holes
   - Battleship - 4 holes
   - Carrier - 5 holes
-
-### TODO
-
-- As a player, I want to choose where to attack on the board.
+- As a player, I want to choose where to attack on the board. (DONE)
   - 1 hr.
   - I should automatically see whether it was a hit or a miss and the computer
     should store this information for later reference.
-- As a player, I want to check the current status of the game.
-  - 1 hr.
-  - I should be able to see my own ship configuration and the hits and misses
-    that have been made on my grid, but I should only be able to see the hits
-    and misses that have been made on my opponent’s grid (but not their ship
-    configuration).
 - As a player, I want ships to be sunk when appropriate.
   - 1 hr.
   - Ships should sink when all of their holes have been hit.
@@ -48,6 +34,12 @@ User stories, from highest to lowest priority:
     only be confirmed to work using automated tests. However, we would
     eventually like a simple textual interface with which to test the features
     interactively.
+- As a player, I want to check the current status of the game.
+  - 1 hr.
+  - I should be able to see my own ship configuration and the hits and misses
+    that have been made on my grid, but I should only be able to see the hits
+    and misses that have been made on my opponent’s grid (but not their ship
+    configuration).
 - As a player, I want to play against another player on a single computer.
   - 1 hr.
   - As an extension of the text-based interface idea, we also want to be able
