@@ -45,10 +45,46 @@ class GridTestCase(unittest.TestCase):
 
 class ShipTestCase(unittest.TestCase):
 
-    def test_create_ship(self):
+    def test_create_carrier(self):
+        aft_point = (4, 9)
+        direction = EAST
+        name = CARRIER
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_battleship(self):
+        aft_point = (2, 9)
+        direction = NORTH
+        name = BATTLESHIP
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_cruiser(self):
+        aft_point = (4, 2)
+        direction = WEST
+        name = CRUISER
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_submarine(self):
         aft_point = (3, 5)
         direction = EAST
         name = SUBMARINE
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_destroyer(self):
+        aft_point = (7, 4)
+        direction = NORTH
+        name = DESTROYER
         ship = Ship(aft_point, direction, name)
         self.assertEqual(ship._aft_point, aft_point)
         self.assertEqual(ship._direction, direction)
