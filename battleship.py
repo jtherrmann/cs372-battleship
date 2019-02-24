@@ -13,7 +13,6 @@ SUBMARINE = 'Submarine'
 DESTROYER = 'Destroyer'
 
 
-
 # TODO:
 # - use static methods
 # - use namedtuples for points
@@ -39,6 +38,9 @@ class Grid:
     def __init__(self):
         self._ships = []
         self._pegs = []
+
+    def is_dead(self):
+        pass
 
     def attack(self, x, y):
         peg = Peg(
