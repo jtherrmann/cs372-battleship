@@ -40,11 +40,11 @@ class Grid:
         self._pegs = []
 
     def is_dead(self):
-        pass
+        return all(ship.is_sunk() for ship in self._ships)
 
     def attack(self, x, y):
         peg = Peg(
-            x, y, any((x, y) in ship.get_points() for ship in self._ships)
+            x, y, any(ship.is_hit(x, y) for ship in self._ships)
         )
         self._pegs.append(peg)
         return peg.is_hit
@@ -80,10 +80,21 @@ class Ship:
         self._direction = direction
         self._name = name
         self._length = self._lengths[self._name]
+        self._hit_points = self._length
         self._validate_location()
 
     def get_points(self):
         return (self._get_point(i) for i in range(self._length))
+
+    def is_hit(self, x, y):
+        hit = (x, y) in self.get_points()
+        if hit:
+            assert self._hit_points > 0
+            self._hit_points -= 1
+        return hit
+
+    def is_sunk(self):
+        return self._hit_points == 0
 
     def _validate_location(self):
         self._validate_point(self._aft_point)
