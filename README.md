@@ -21,10 +21,10 @@ User stories, from highest to lowest priority:
   - 1 hr.
   - I should automatically see whether it was a hit or a miss and the computer
     should store this information for later reference.
-- As a player, I want ships to be sunk when appropriate.
+- As a player, I want ships to be sunk when appropriate. (DONE)
   - 1 hr.
   - Ships should sink when all of their holes have been hit.
-- As a player, I want to win or lose when appropriate.
+- As a player, I want to win or lose when appropriate. (DONE)
   - 1 hr.
   - A player should lose when all of their ships have been sunk.
 - As a player, I want a text-based interface in order to test these features.
