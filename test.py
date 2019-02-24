@@ -1,7 +1,19 @@
 import unittest
 
 from battleship import (
-    NORTH, SOUTH, EAST, WEST, SUBMARINE, Peg, Grid, Ship, ShipOffGridError,
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST,
+    CARRIER,
+    BATTLESHIP,
+    CRUISER,
+    SUBMARINE,
+    DESTROYER,
+    Peg,
+    Grid,
+    Ship,
+    ShipOffGridError,
     ShipsOverlapError
 )
 
