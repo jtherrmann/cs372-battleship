@@ -10,7 +10,7 @@ User stories, from highest to lowest priority:
   - 1 hr.
   - The computer should automatically restrict me to legal configurations, e.g.
     no diagonal placement, no overlapping ships, etc.
-- As a player, I want the full range of ship sizes. (IN PROGRESS)
+- As a player, I want the full range of ship sizes. (DONE)
   - 1 hr.
   - Destroyer - 2 holes
   - Submarine - 3 holes
