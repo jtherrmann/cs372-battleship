@@ -4,7 +4,7 @@
 
 User stories, from highest to lowest priority:
 
-(Rankings are on the 1, 2, 4, or 8 hr. scale, but we only needed 1 and 8.)
+(Rankings are on the 1, 2, 4, 8 hr. scale.)
 
 ### Done
 
@@ -33,7 +33,7 @@ User stories, from highest to lowest priority:
 ### TODO
 
 - As a player, I want a text-based interface in order to test these features.
-  - 1 hr.
+  - ~~1 hr.~~ 4 hr.
   - As players / project owners, we are most interested in seeing a working
     implementation of the game logic, even if it has no user interface and can
     only be confirmed to work using automated tests. However, we would
