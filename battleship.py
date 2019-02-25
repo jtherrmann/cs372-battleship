@@ -43,6 +43,9 @@ class Grid:
         lines = (self._get_line(row) for row in range(10))
         return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
 
+    def get_partial_view(self):
+        return ''
+
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
 

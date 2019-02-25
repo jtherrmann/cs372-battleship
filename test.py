@@ -105,6 +105,29 @@ class GridTestCase(unittest.TestCase):
             'J . . . . . . . . . . \n'
         )
 
+    def test_get_partial_view(self):
+        grid = Grid()
+        grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
+        grid.add_ship(Ship((8, 1), SOUTH, CARRIER))
+        grid.attack(0, 0)
+        grid.attack(5, 5)
+        grid.attack(7, 2)
+        grid.attack(8, 3)
+        self.assertEqual(
+            grid.get_partial_view(),
+            '  1 2 3 4 5 6 7 8 9 10\n'
+            'A x . . . . . . . . . \n'
+            'B . . . . . . . . . . \n'
+            'C . . . . . . . o . . \n'
+            'D . . . . . . . . x . \n'
+            'E . . . . . . . . . . \n'
+            'F . . . . . o . . . . \n'
+            'G . . . . . . . . . . \n'
+            'H . . . . . . . . . . \n'
+            'I . . . . . . . . . . \n'
+            'J . . . . . . . . . . \n'
+        )
+
 
 class ShipTestCase(unittest.TestCase):
 
