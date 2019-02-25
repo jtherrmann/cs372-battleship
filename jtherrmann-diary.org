@@ -119,3 +119,43 @@ upcoming ones are also estimated at 1 hr, we are behind our expected velocity.
 I don't think we will make up all of the difference, but looking ahead I am
 hopeful that some of the remaining user stories could take less than an hour,
 which would help make up some of the difference.
+** Sun Feb 24
+*** 1:40 pm - 2:40 pm
+We started off pair programming with Jonathan at the keyboard so he could
+finish the user story he was working on. Then we switched places and finished a
+few more user stories. We've now finished 5 user stories after a total of about
+7 hr together, giving us a velocity of about 0.71 user stories / hour, which is
+an improvement over our previous velocity of 0.44 user stories / hour. I think
+I was correct that we are starting to move at a higher velocity now that we
+have started to flesh out our design and implementation.
+*** 4:45 pm - 6:45 pm
+I went home and started on the text-based interface user story. It took me a
+while to get started because I have never written tests for IO, so I wasn't
+sure where to begin. I experimented a bit with the unittest module's facilities
+for mocking IO, and tested out the example from
+[[https://stackoverflow.com/a/21047132][this Stack Overflow post]].
+
+Then I switched to thinking about the broader design of the text-based UI. I
+considered creating a Game class, or a UserInterface class, or both, or just
+implementing the UI as a giant loop. I wasn't really sure what to do.
+
+Then I realized I should just focus on the tests first, so I decided to just
+write tests for the exact input-output behavior that I want from the UI, and
+not worry about the implementation yet. This was a case where TDD really helped
+to give me some direction. I can see how focusing on writing tests for the
+required behavior and then writing as little code as is needed to make them
+pass can really help teams meet deadlines when they might otherwise get bogged
+down in design decisions and minor details.
+
+I fulfilled the user story related to checking the current status of the game,
+which I decided was a prerequisite to completing the text-based interface user
+story. After 7 hr together and 2 hr by myself for a total of 9 hr spent
+directly working on user stories (though I believe Jonathan has put more time
+in by himself learning about Python for this project), we've completed 6 user
+stories, for an overall velocity of 0.67 user stories / hour.
+
+I would probably call the first 8 user stories our first "sprint" (after which
+we will have a fully functional, 2-player, single-computer, text-based
+battleship game), estimated at a total difficulty of 11 hours, giving us a
+target velocity of 0.73 user stories / hour. So we aren't too far behind our
+target velocity for this sprint.
