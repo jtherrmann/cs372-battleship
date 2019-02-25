@@ -39,6 +39,9 @@ class Grid:
         self._ships = []
         self._pegs = []
 
+    def get_full_view(self):
+        return ""
+
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
 
