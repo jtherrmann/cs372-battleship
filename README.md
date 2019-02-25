@@ -29,6 +29,12 @@ User stories, from highest to lowest priority:
 - As a player, I want to win or lose when appropriate.
   - 1 hr.
   - A player should lose when all of their ships have been sunk.
+- As a player, I want to check the current status of the game.
+  - 1 hr.
+  - I should be able to see my own ship configuration and the hits and misses
+    that have been made on my grid, but I should only be able to see the hits
+    and misses that have been made on my opponent’s grid (but not their ship
+    configuration).
 
 ### TODO
 
@@ -39,12 +45,6 @@ User stories, from highest to lowest priority:
     only be confirmed to work using automated tests. However, we would
     eventually like a simple textual interface with which to test the features
     interactively.
-- As a player, I want to check the current status of the game.
-  - 1 hr.
-  - I should be able to see my own ship configuration and the hits and misses
-    that have been made on my grid, but I should only be able to see the hits
-    and misses that have been made on my opponent’s grid (but not their ship
-    configuration).
 - As a player, I want to play against another player on a single computer.
   - 1 hr.
   - As an extension of the text-based interface idea, we also want to be able
