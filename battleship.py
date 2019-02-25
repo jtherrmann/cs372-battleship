@@ -40,11 +40,10 @@ class Grid:
         self._pegs = []
 
     def get_full_view(self):
-        lines = (self._get_line(row) for row in range(10))
-        return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
+        return self._get_view(True)
 
     def get_partial_view(self):
-        return ''
+        return self._get_view(False)
 
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
@@ -71,17 +70,24 @@ class Grid:
                 return True
         return False
 
-    def _get_line(self, row):
+    def _get_view(self, full_view):
+        lines = (self._get_line(row, full_view) for row in range(10))
+        return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
+
+    def _get_line(self, row, full_view):
         letter = 'ABCDEFGHIJ'[row]
-        cells = ' '.join(self._get_cell(row, col) for col in range(10))
+        cells = ' '.join(
+            self._get_cell(row, col, full_view) for col in range(10)
+        )
         return '{} {} \n'.format(letter, cells)
 
-    def _get_cell(self, row, col):
+    def _get_cell(self, row, col, full_view):
         x, y = col, row
         peg = self._get_peg(x, y)
         if peg is not None:
             return 'x' if peg.is_hit else 'o'
-        return '#' if self._point_on_ship(x, y) else '.'
+        # TODO: we shouldn't have to check full_view for each cell
+        return '#' if full_view and self._point_on_ship(x, y) else '.'
 
     def _get_peg(self, x, y):
         for peg in self._pegs:
