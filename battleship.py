@@ -40,7 +40,8 @@ class Grid:
         self._pegs = []
 
     def get_full_view(self):
-        return ""
+        lines = (self._get_line(row) for row in range(10))
+        return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
 
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
@@ -66,6 +67,27 @@ class Grid:
             if point in ship2.get_points():
                 return True
         return False
+
+    def _get_line(self, row):
+        letter = 'ABCDEFGHIJ'[row]
+        cells = ' '.join(self._get_cell(row, col) for col in range(10))
+        return '{} {} \n'.format(letter, cells)
+
+    def _get_cell(self, row, col):
+        x, y = col, row
+        peg = self._get_peg(x, y)
+        if peg is not None:
+            return 'x' if peg.is_hit else 'o'
+        return '#' if self._point_on_ship(x, y) else '.'
+
+    def _get_peg(self, x, y):
+        for peg in self._pegs:
+            if (x, y) == (peg.x, peg.y):
+                return peg
+        return None
+
+    def _point_on_ship(self, x, y):
+        return any((x, y) in ship.get_points() for ship in self._ships)
 
 
 class Ship:
