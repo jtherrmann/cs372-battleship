@@ -6,27 +6,32 @@ User stories, from highest to lowest priority:
 
 (Rankings are on the 1, 2, 4, or 8 hr. scale, but we only needed 1 and 8.)
 
-- As a player, I want to choose an initial configuration for my ships. (DONE)
+### Done
+
+- As a player, I want to choose an initial configuration for my ships.
   - 1 hr.
   - The computer should automatically restrict me to legal configurations, e.g.
     no diagonal placement, no overlapping ships, etc.
-- As a player, I want the full range of ship sizes. (DONE)
+- As a player, I want the full range of ship sizes.
   - 1 hr.
   - Destroyer - 2 holes
   - Submarine - 3 holes
   - Cruiser - 3 holes
   - Battleship - 4 holes
   - Carrier - 5 holes
-- As a player, I want to choose where to attack on the board. (DONE)
+- As a player, I want to choose where to attack on the board.
   - 1 hr.
   - I should automatically see whether it was a hit or a miss and the computer
     should store this information for later reference.
-- As a player, I want ships to be sunk when appropriate. (DONE)
+- As a player, I want ships to be sunk when appropriate.
   - 1 hr.
   - Ships should sink when all of their holes have been hit.
-- As a player, I want to win or lose when appropriate. (DONE)
+- As a player, I want to win or lose when appropriate.
   - 1 hr.
   - A player should lose when all of their ships have been sunk.
+
+### TODO
+
 - As a player, I want a text-based interface in order to test these features.
   - 1 hr.
   - As players / project owners, we are most interested in seeing a working
