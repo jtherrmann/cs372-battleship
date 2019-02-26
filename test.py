@@ -132,7 +132,7 @@ class GridTestCase(unittest.TestCase):
              Peg(7, 5, False)]
         )
 
-    def test_grid_dead(self):
+    def test_is_dead(self):
         grid = Grid()
         grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
         self.assertFalse(grid.is_dead())
