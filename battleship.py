@@ -217,7 +217,7 @@ def configure_ships(grid, player_name):
         "A3 E, B1 S, C10 W, I2 N, J8 N\n".format(*SHIP_NAMES)
     )
     all_ships = parse_all_ships(
-        input('Ship configuration for {}:\n> '.format(player_name))
+        input('Ship configuration for {}:\n\n> '.format(player_name))
     )
     for ship in all_ships:
         grid.add_ship(ship)
