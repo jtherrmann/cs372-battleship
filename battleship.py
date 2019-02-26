@@ -54,7 +54,7 @@ class Grid:
         for ship in self._ships:
             if ship.is_hit(x, y):
                 self._pegs.append(Peg(x, y, True))
-                return ship.get_name()
+                return ship.get_name(), ship.is_sunk()
         self._pegs.append(Peg(x, y, False))
 
     def add_ship(self, new_ship):
