@@ -1,3 +1,4 @@
+import sys
 from collections import namedtuple
 
 
@@ -197,8 +198,11 @@ def clear_on_enter(msg):
 
 
 def clear_screen():
-    # TODO: check platform
-    print('\033c')
+    # TODO: does this method work on any POSIX system? (os.name == 'posix')
+    if sys.platform == 'linux':
+        print('\033c')
+    else:
+        print('\nWarning: cannot clear screen on non-Linux platforms.\n\n')
 
 
 def configure_ships(grid, player_name):
