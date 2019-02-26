@@ -118,6 +118,17 @@ class Ship:
         self._hit_points = self._length
         self._validate_location()
 
+    def __eq__(self, other):
+        equal = (
+            self._aft_point == other._aft_point
+            and self._direction == other._direction
+            and self._name == other._name
+            and self._hit_points == other._hit_points
+        )
+        if equal:
+            assert self._length == other._length
+        return equal
+
     def get_points(self):
         return (self._get_point(i) for i in range(self._length))
 
