@@ -195,8 +195,7 @@ def switch_players():
 
 def clear_on_enter(msg):
     clear_screen()
-    print('{} Press Enter to continue.'.format(msg))
-    input()
+    input('{} Press Enter to continue.'.format(msg))
     clear_screen()
 
 
