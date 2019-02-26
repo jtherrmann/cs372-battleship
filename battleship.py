@@ -53,7 +53,6 @@ class Grid:
             x, y, any(ship.is_hit(x, y) for ship in self._ships)
         )
         self._pegs.append(peg)
-        # TODO: return value never used?
         return peg.is_hit
 
     def add_ship(self, new_ship):
@@ -166,19 +165,26 @@ class Ship:
 
 
 def main():
-    # TODO: clear screen and prompt players to switch spots where appropriate
+    # TODO:
+    # - clear screen and prompt players to switch spots where appropriate
+    # - error handling
+    # - test playing a game all the way through
+    player1_name, player2_name = 'Player 1', 'Player 2'
     grid1, grid2 = Grid(), Grid()
-    configure_ships(grid1)
-    configure_ships(grid2)
+    configure_ships(grid1, player1_name)
+    configure_ships(grid2, player2_name)
     while True:
-        if take_turn(grid1, grid2):
+        if take_turn(grid1, grid2, player1_name):
             break
-        if take_turn(grid2, grid1):
+        if take_turn(grid2, grid1, player2_name):
             break
 
 
-def configure_ships(grid):
-    all_ships = parse_all_ships(input('TODO'))
+def configure_ships(grid, player_name):
+    # TODO: print instructions for how to format initial configuration.
+    all_ships = parse_all_ships(
+        input('Ship configuration for {}:\n'.format(player_name))
+    )
     for ship in all_ships:
         grid.add_ship(ship)
 
@@ -203,11 +209,13 @@ def parse_ship(point_and_direction, ship_name):
     return Ship(point, direction, ship_name)
 
 
-def take_turn(attacking_grid, defending_grid):
+def take_turn(attacking_grid, defending_grid, attacking_player_name):
+    print('Your move, {}.'.format(attacking_player_name))
     print(defending_grid.get_partial_view())
     print(attacking_grid.get_full_view())
-    attack_point = parse_point(input('TODO'))
+    attack_point = parse_point(input('Attack: '))
     defending_grid.attack(attack_point)
+    # TODO: print whether hit or miss
     return defending_grid.is_dead()
 
 
