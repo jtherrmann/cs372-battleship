@@ -90,9 +90,9 @@ class Grid:
     def _get_cell(self, row, col, is_ocean_grid):
         x, y = col, row
         peg = self._get_peg(x, y)
-        if peg is not None:
-            return 'x' if peg.is_hit else 'o'
         # TODO: we shouldn't have to check is_ocean_grid for each cell
+        if peg is not None:
+            return 'x' if peg.is_hit else '.' if is_ocean_grid else 'o'
         return '#' if is_ocean_grid and self._point_on_ship(x, y) else '.'
 
     def _get_peg(self, x, y):
