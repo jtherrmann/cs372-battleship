@@ -6,11 +6,12 @@ SOUTH = 'S'
 EAST = 'E'
 WEST = 'W'
 
-CARRIER = 'Carrier'
-BATTLESHIP = 'Battleship'
-CRUISER = 'Cruiser'
-SUBMARINE = 'Submarine'
-DESTROYER = 'Destroyer'
+CARRIER = 'carrier'
+BATTLESHIP = 'battleship'
+CRUISER = 'cruiser'
+SUBMARINE = 'submarine'
+DESTROYER = 'destroyer'
+SHIP_NAMES = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
 
 
 # TODO:
@@ -181,9 +182,16 @@ def main():
 
 
 def configure_ships(grid, player_name):
-    # TODO: print instructions for how to format initial configuration.
+    print(
+        "A ship configuration is a comma-separated list of five ships, where\n"
+        "each ship is represented by the location of its stern and the\n"
+        "cardinal direction in which the ship points. Ships are given in the\n"
+        "following order:\n\n{}, {}, {}, {}, {}\n\n"
+        "The following is a valid ship configuration:\n\n"
+        "A3 E, B1 S, C10 W, I2 N, J8 N\n".format(*SHIP_NAMES)
+    )
     all_ships = parse_all_ships(
-        input('Ship configuration for {}:\n'.format(player_name))
+        input('Ship configuration for {}:\n> '.format(player_name))
     )
     for ship in all_ships:
         grid.add_ship(ship)
@@ -191,12 +199,11 @@ def configure_ships(grid, player_name):
 
 def parse_all_ships(inpt):
     points_and_directions = inpt.split(',')
-    ship_names = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
-    assert len(points_and_directions) == len(ship_names)
+    assert len(points_and_directions) == len(SHIP_NAMES)
     return tuple(
         parse_ship(point_and_direction, ship_name)
         for point_and_direction, ship_name in
-        zip(points_and_directions, ship_names)
+        zip(points_and_directions, SHIP_NAMES)
     )
 
 
