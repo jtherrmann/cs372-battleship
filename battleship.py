@@ -167,9 +167,9 @@ class Ship:
 
 def main():
     # TODO:
-    # - clear screen and prompt players to switch spots where appropriate
     # - error handling
     # - test playing a game all the way through
+    display_welcome()
     player1_name, player2_name = 'Player 1', 'Player 2'
     grid1, grid2 = Grid(), Grid()
     configure_ships(grid1, player1_name)
@@ -179,6 +179,26 @@ def main():
             break
         if take_turn(grid2, grid1, player2_name):
             break
+
+
+def display_welcome():
+    clear_on_enter('Welcome to Battleship!')
+
+
+def switch_players():
+    clear_on_enter('Please switch players.')
+
+
+def clear_on_enter(msg):
+    clear_screen()
+    print('{} Press Enter to continue.'.format(msg))
+    input()
+    clear_screen()
+
+
+def clear_screen():
+    # TODO: check platform
+    print('\033c')
 
 
 def configure_ships(grid, player_name):
@@ -195,6 +215,7 @@ def configure_ships(grid, player_name):
     )
     for ship in all_ships:
         grid.add_ship(ship)
+    clear_screen()
 
 
 def parse_all_ships(inpt):
@@ -217,14 +238,19 @@ def parse_ship(point_and_direction, ship_name):
 
 
 def take_turn(attacking_grid, defending_grid, attacking_player_name):
-    print('Your move, {}.'.format(attacking_player_name))
+    print('Your move, {}.\n'.format(attacking_player_name))
     print(defending_grid.get_partial_view())
     print(attacking_grid.get_full_view())
     x, y = parse_point(input('Attack: '))
     defending_grid.attack(x, y)
     # TODO: print whether hit or miss
     # TODO: print which ship was hit
-    return defending_grid.is_dead()
+    defender_dead = defending_grid.is_dead()
+    if defender_dead:
+        print('{} has won!'.format(attacking_player_name))
+    else:
+        switch_players()
+    return defender_dead
 
 
 def parse_point(inpt):
