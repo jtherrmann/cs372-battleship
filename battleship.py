@@ -184,7 +184,23 @@ def configure_ships(grid):
 
 
 def parse_all_ships(inpt):
-    pass
+    points_and_directions = inpt.split(',')
+    ship_names = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
+    assert len(points_and_directions) == len(ship_names)
+    return tuple(
+        parse_ship(point_and_direction, ship_name)
+        for point_and_direction, ship_name in
+        zip(points_and_directions, ship_names)
+    )
+
+
+def parse_ship(point_and_direction, ship_name):
+    values = point_and_direction.split()
+    assert len(values) == 2
+    point = parse_point(values[0])
+    direction = values[1].upper()
+    assert direction in (NORTH, SOUTH, EAST, WEST)
+    return Ship(point, direction, ship_name)
 
 
 def take_turn(attacking_grid, defending_grid):
