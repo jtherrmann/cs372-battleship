@@ -101,12 +101,20 @@ class GridTestCase(unittest.TestCase):
     def test_attack(self):
         grid = Grid()
         grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
+        grid.add_ship(Ship((9, 9), WEST, BATTLESHIP))
 
-        self.assertEqual(grid.attack(0, 0), True)
-        self.assertEqual(grid.attack(1, 0), True)
-        self.assertEqual(grid.attack(2, 0), True)
+        self.assertEqual(grid.attack(0, 0), (True, SUBMARINE))
+        self.assertEqual(grid.attack(1, 0), (True, SUBMARINE))
+        self.assertEqual(grid.attack(2, 0), (True, SUBMARINE))
         self.assertEqual(grid.attack(3, 0), False)
         self.assertEqual(grid.attack(0, 1), False)
+        self.assertEqual(grid.attack(9, 9), (True, BATTLESHIP))
+        self.assertEqual(grid.attack(8, 9), (True, BATTLESHIP))
+        self.assertEqual(grid.attack(7, 9), (True, BATTLESHIP))
+        self.assertEqual(grid.attack(6, 9), (True, BATTLESHIP))
+        self.assertEqual(grid.attack(5, 9), False)
+        self.assertEqual(grid.attack(5, 5), False)
+        self.assertEqual(grid.attack(7, 5), False)
 
         self.assertEqual(
             grid._pegs,
@@ -114,7 +122,14 @@ class GridTestCase(unittest.TestCase):
              Peg(1, 0, True),
              Peg(2, 0, True),
              Peg(3, 0, False),
-             Peg(0, 1, False)]
+             Peg(0, 1, False),
+             Peg(9, 9, True),
+             Peg(8, 9, True),
+             Peg(7, 9, True),
+             Peg(6, 9, True),
+             Peg(5, 9, False),
+             Peg(5, 5, False),
+             Peg(7, 5, False)]
         )
 
     def test_grid_dead(self):
