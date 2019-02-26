@@ -185,7 +185,15 @@ def take_turn(attacking_grid, defending_grid):
 
 
 def parse_point(inpt):
-    pass
+    row_letter = inpt[0].upper()
+    y = ord(row_letter) - 65
+    assert 0 <= y <= 9
+
+    col_number = inpt[1:]
+    x = int(col_number) - 1
+    assert 0 <= x <= 9
+
+    return x, y
 
 
 if __name__ == '__main__':
