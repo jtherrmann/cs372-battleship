@@ -159,3 +159,26 @@ we will have a fully functional, 2-player, single-computer, text-based
 battleship game), estimated at a total difficulty of 11 hours, giving us a
 target velocity of 0.73 user stories / hour. So we aren't too far behind our
 target velocity for this sprint.
+** Mon Feb 25
+*** 5:10 pm - 7:40 pm
+I continued working on the text-based user interface, as well as the ability to
+play against another human on the same computer, and made good progress on both
+user stories. I decided not to write tests for the actual terminal-based input
+and output, because I think that mocking stdin and stdout and checking every
+line of input/output would take a very long time, much longer than manually
+testing. I tried to minimize the amount of code not covered by automated tests,
+but it would still be good to add proper IO-mocking tests at some point in the
+future.
+
+In testing the UI I found a bug in which a ship was considered off the grid if
+its bow was at the edge of the grid. Before looking for the source of the bug,
+I added tests for the bug, which failed as expected, and then located the
+source of the bug and fixed it to make the tests pass. I really like this
+application of TDD to debugging because it provides excellent documentation
+(both in the test file and the commit history) of the bug and gives me great
+confidence that it was fixed correctly.
+
+Because I did not quite finish either of the user stories I'm working on, our
+velocity is now 6 user stories / 11.5 hr = 0.52 user stories / hour. Hopefully
+that number will increase after I finish off the current two in-progress user
+stories.
