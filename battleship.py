@@ -247,6 +247,7 @@ def parse_ship(point_and_direction, ship_name):
 
 
 def take_turn(attacking_grid, defending_grid, attacking_player_name):
+    # TODO: refactor into smaller functions.
     print_grids(attacking_grid, defending_grid, attacking_player_name)
 
     x, y = parse_point(input('Attack: '))
