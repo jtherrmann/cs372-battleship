@@ -132,6 +132,24 @@ class GridTestCase(unittest.TestCase):
              Peg(7, 5, False)]
         )
 
+    def test_total_sunk(self):
+        grid = Grid()
+        grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
+        grid.add_ship(Ship((9, 9), WEST, BATTLESHIP))
+
+        self.assertEqual(grid.total_sunk(), 0)
+        grid.attack(0, 0)
+        grid.attack(1, 0)
+        self.assertEqual(grid.total_sunk(), 0)
+        grid.attack(2, 0)
+        self.assertEqual(grid.total_sunk(), 1)
+        grid.attack(9, 9)
+        grid.attack(8, 9)
+        self.assertEqual(grid.total_sunk(), 1)
+        grid.attack(7, 9)
+        grid.attack(6, 9)
+        self.assertEqual(grid.total_sunk(), 2)
+
     def test_is_dead(self):
         grid = Grid()
         grid.add_ship(Ship((0, 0), EAST, SUBMARINE))

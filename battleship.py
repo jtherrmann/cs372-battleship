@@ -47,6 +47,9 @@ class Grid:
     def get_partial_view(self):
         return self._get_view(False)
 
+    def total_sunk(self):
+        pass
+
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
 
