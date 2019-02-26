@@ -275,16 +275,16 @@ class ShipTestCase(unittest.TestCase):
 
     def test_get_bow_point(self):
         self.assertEqual(
-            Ship((0, 5), NORTH, SUBMARINE)._get_bow_point(), (0, 2)
+            Ship((0, 5), NORTH, SUBMARINE)._get_bow_point(), (0, 3)
         )
         self.assertEqual(
-            Ship((0, 5), SOUTH, SUBMARINE)._get_bow_point(), (0, 8)
+            Ship((0, 5), SOUTH, SUBMARINE)._get_bow_point(), (0, 7)
         )
         self.assertEqual(
-            Ship((5, 0), EAST, SUBMARINE)._get_bow_point(), (8, 0)
+            Ship((5, 0), EAST, SUBMARINE)._get_bow_point(), (7, 0)
         )
         self.assertEqual(
-            Ship((5, 0), WEST, SUBMARINE)._get_bow_point(), (2, 0)
+            Ship((5, 0), WEST, SUBMARINE)._get_bow_point(), (3, 0)
         )
 
     def test_get_points(self):
