@@ -36,7 +36,7 @@ User stories, from highest to lowest priority:
     and misses that have been made on my opponent’s grid (but not their ship
     configuration).
 
-### TODO
+### In progress
 
 - As a player, I want a text-based interface in order to test these features.
   - ~~1 hr.~~ 4 hr.
@@ -50,6 +50,9 @@ User stories, from highest to lowest priority:
   - As an extension of the text-based interface idea, we also want to be able
     to take turns at the keyboard in order to play against another human (or
     just play against ourselves).
+
+### TODO
+
 - As a player, I want to play against a remote opponent.
   - 8 hr.
   - As players / project owners we would eventually like to be able to play
