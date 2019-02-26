@@ -48,7 +48,7 @@ class Grid:
         return self._get_view(False)
 
     def total_sunk(self):
-        pass
+        return sum(ship.is_sunk() for ship in self._ships)
 
     def is_dead(self):
         return all(ship.is_sunk() for ship in self._ships)
