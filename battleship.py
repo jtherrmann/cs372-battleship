@@ -223,6 +223,7 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
     x, y = parse_point(input('Attack: '))
     defending_grid.attack(x, y)
     # TODO: print whether hit or miss
+    # TODO: print which ship was hit
     return defending_grid.is_dead()
 
 
