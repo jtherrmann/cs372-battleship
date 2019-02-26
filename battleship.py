@@ -245,20 +245,29 @@ def parse_ship(point_and_direction, ship_name):
 
 def take_turn(attacking_grid, defending_grid, attacking_player_name):
     print_grids(attacking_grid, defending_grid, attacking_player_name)
+
     x, y = parse_point(input('Attack: '))
-    hit_ship = defending_grid.attack(x, y)
+    attack_result = defending_grid.attack(x, y)
+
     clear_screen()
     print_grids(attacking_grid, defending_grid, attacking_player_name)
-    print(
-        'Hit. {}.'.format(hit_ship.capitalize()) if hit_ship is not None
-        else 'Miss.'
-    )
+
+    if attack_result is not None:
+        ship_name, is_sunk = attack_result
+        print(
+            ('Hit.' if not is_sunk else 'Hit and sunk.')
+            + ' {}.'.format(ship_name.capitalize())
+        )
+    else:
+        print('Miss.')
+
     defender_dead = defending_grid.is_dead()
     if defender_dead:
         print('\n{} has won!'.format(attacking_player_name))
     else:
         input('\nPress Enter to continue.')
         switch_players()
+
     return defender_dead
 
 
