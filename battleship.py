@@ -53,6 +53,7 @@ class Grid:
             x, y, any(ship.is_hit(x, y) for ship in self._ships)
         )
         self._pegs.append(peg)
+        # TODO: return value never used?
         return peg.is_hit
 
     def add_ship(self, new_ship):
@@ -151,3 +152,33 @@ class Ship:
             return self._aft_point[0] + offset, self._aft_point[1]
         if self._direction == WEST:
             return self._aft_point[0] - offset, self._aft_point[1]
+
+
+def main():
+    # TODO: clear screen and prompt players to switch spots where appropriate
+    grid1, grid2 = Grid(), Grid()
+    configure_ships(grid1)
+    configure_ships(grid2)
+    while True:
+        if take_turn(grid1, grid2):
+            break
+        if take_turn(grid2, grid1):
+            break
+
+
+def configure_ships(grid):
+    all_ships = parse_all_ships(input('TODO'))
+    for ship in all_ships:
+        grid.add_ship(ship)
+
+
+def take_turn(attacking_grid, defending_grid):
+    print(defending_grid.get_partial_view())
+    print(attacking_grid.get_full_view())
+    attack_point = parse_point(input('TODO'))
+    defending_grid.attack(attack_point)
+    return defending_grid.is_dead()
+
+
+if __name__ == '__main__':
+    main()
