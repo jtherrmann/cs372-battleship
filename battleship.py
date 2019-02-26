@@ -213,8 +213,8 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
     print('Your move, {}.'.format(attacking_player_name))
     print(defending_grid.get_partial_view())
     print(attacking_grid.get_full_view())
-    attack_point = parse_point(input('Attack: '))
-    defending_grid.attack(attack_point)
+    x, y = parse_point(input('Attack: '))
+    defending_grid.attack(x, y)
     # TODO: print whether hit or miss
     return defending_grid.is_dead()
 
