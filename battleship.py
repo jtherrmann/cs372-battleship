@@ -276,6 +276,7 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
 
 def print_grids(attacking_grid, defending_grid, attacking_player_name):
     print("{}'s turn.\n".format(attacking_player_name))
+    print('Enemy ships sunk: {}\n'.format(defending_grid.total_sunk()))
     print(defending_grid.get_partial_view())
     print(attacking_grid.get_full_view())
 
