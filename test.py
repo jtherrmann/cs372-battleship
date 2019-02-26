@@ -220,6 +220,33 @@ class ShipTestCase(unittest.TestCase):
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
+    def test_create_ship_with_aft_at_edge(self):
+        aft_point = (0, 2)
+        direction = EAST
+        name = CRUISER
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_vertical_ship_with_bow_at_edge(self):
+        aft_point = (0, 2)
+        direction = NORTH
+        name = CRUISER
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
+    def test_create_horizontal_ship_with_bow_at_edge(self):
+        aft_point = (4, 0)
+        direction = WEST
+        name = CARRIER
+        ship = Ship(aft_point, direction, name)
+        self.assertEqual(ship._aft_point, aft_point)
+        self.assertEqual(ship._direction, direction)
+        self.assertEqual(ship._name, name)
+
     def test_aft_on_grid(self):
         with self.assertRaises(ShipOffGridError):
             Ship((-1, 5), WEST, SUBMARINE)
