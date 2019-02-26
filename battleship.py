@@ -172,6 +172,10 @@ def configure_ships(grid):
         grid.add_ship(ship)
 
 
+def parse_all_ships(inpt):
+    pass
+
+
 def take_turn(attacking_grid, defending_grid):
     print(defending_grid.get_partial_view())
     print(attacking_grid.get_full_view())

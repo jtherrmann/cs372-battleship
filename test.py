@@ -14,8 +14,40 @@ from battleship import (
     Grid,
     Ship,
     ShipOffGridError,
-    ShipsOverlapError
+    ShipsOverlapError,
+    parse_all_ships
 )
+
+
+class ParseTestCase(unittest.TestCase):
+
+    def test_parse_all_ships(self):
+        all_ships = parse_all_ships(
+            'A3 E, B1 S, C10 W, I2 N, J8 N'
+        )
+        expected = (
+            Ship((2, 0), EAST, CARRIER),
+            Ship((0, 1), SOUTH, BATTLESHIP),
+            Ship((9, 2), WEST, CRUISER),
+            Ship((1, 8), NORTH, SUBMARINE),
+            Ship((7, 9), NORTH, DESTROYER)
+        )
+        self.assertEqual(all_ships, expected)
+
+    def test_parse_all_ships_cases_spaces(self):
+        all_ships = parse_all_ships(
+            '    A3    e,b1 S    ,   c10 w, I2     N    ,J8    n    '
+        )
+        expected = (
+            Ship((2, 0), EAST, CARRIER),
+            Ship((0, 1), SOUTH, BATTLESHIP),
+            Ship((9, 2), WEST, CRUISER),
+            Ship((1, 8), NORTH, SUBMARINE),
+            Ship((7, 9), NORTH, DESTROYER)
+        )
+        self.assertEqual(all_ships, expected)
+
+    # TODO: test that parse_all_ships raises an exception for bad syntax
 
 
 class GridTestCase(unittest.TestCase):
