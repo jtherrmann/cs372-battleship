@@ -41,11 +41,11 @@ class Grid:
         self._ships = []
         self._pegs = []
 
-    def get_full_view(self):
-        return self._get_view(True)
+    def ocean_grid_str(self):
+        return self._grid_str(True)
 
-    def get_partial_view(self):
-        return self._get_view(False)
+    def target_grid_str(self):
+        return self._grid_str(False)
 
     def total_sunk(self):
         return sum(ship.is_sunk() for ship in self._ships)
@@ -75,24 +75,24 @@ class Grid:
                 return True
         return False
 
-    def _get_view(self, full_view):
-        lines = (self._get_line(row, full_view) for row in range(10))
+    def _grid_str(self, is_ocean_grid):
+        lines = (self._get_line(row, is_ocean_grid) for row in range(10))
         return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
 
-    def _get_line(self, row, full_view):
+    def _get_line(self, row, is_ocean_grid):
         letter = 'ABCDEFGHIJ'[row]
         cells = ' '.join(
-            self._get_cell(row, col, full_view) for col in range(10)
+            self._get_cell(row, col, is_ocean_grid) for col in range(10)
         )
         return '{} {} \n'.format(letter, cells)
 
-    def _get_cell(self, row, col, full_view):
+    def _get_cell(self, row, col, is_ocean_grid):
         x, y = col, row
         peg = self._get_peg(x, y)
         if peg is not None:
             return 'x' if peg.is_hit else 'o'
-        # TODO: we shouldn't have to check full_view for each cell
-        return '#' if full_view and self._point_on_ship(x, y) else '.'
+        # TODO: we shouldn't have to check is_ocean_grid for each cell
+        return '#' if is_ocean_grid and self._point_on_ship(x, y) else '.'
 
     def _get_peg(self, x, y):
         for peg in self._pegs:
@@ -278,8 +278,8 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
 def print_grids(attacking_grid, defending_grid, attacking_player_name):
     print("{}'s turn.\n".format(attacking_player_name))
     print('Enemy ships sunk: {}\n'.format(defending_grid.total_sunk()))
-    print(defending_grid.get_partial_view())
-    print(attacking_grid.get_full_view())
+    print(defending_grid.target_grid_str())
+    print(attacking_grid.ocean_grid_str())
 
 
 def parse_point(inpt):

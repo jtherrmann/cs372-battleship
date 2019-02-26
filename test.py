@@ -159,7 +159,7 @@ class GridTestCase(unittest.TestCase):
         grid.attack(2, 0)
         self.assertTrue(grid.is_dead())
 
-    def test_get_full_view(self):
+    def test_ocean_grid_str(self):
         grid = Grid()
         grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
         grid.add_ship(Ship((8, 1), SOUTH, CARRIER))
@@ -168,7 +168,7 @@ class GridTestCase(unittest.TestCase):
         grid.attack(7, 2)
         grid.attack(8, 3)
         self.assertEqual(
-            grid.get_full_view(),
+            grid.ocean_grid_str(),
             '  1 2 3 4 5 6 7 8 9 10\n'
             'A x # # . . . . . . . \n'
             'B . . . . . . . . # . \n'
@@ -182,7 +182,7 @@ class GridTestCase(unittest.TestCase):
             'J . . . . . . . . . . \n'
         )
 
-    def test_get_partial_view(self):
+    def test_target_grid_str(self):
         grid = Grid()
         grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
         grid.add_ship(Ship((8, 1), SOUTH, CARRIER))
@@ -191,7 +191,7 @@ class GridTestCase(unittest.TestCase):
         grid.attack(7, 2)
         grid.attack(8, 3)
         self.assertEqual(
-            grid.get_partial_view(),
+            grid.target_grid_str(),
             '  1 2 3 4 5 6 7 8 9 10\n'
             'A x . . . . . . . . . \n'
             'B . . . . . . . . . . \n'
