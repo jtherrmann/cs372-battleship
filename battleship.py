@@ -244,19 +244,28 @@ def parse_ship(point_and_direction, ship_name):
 
 
 def take_turn(attacking_grid, defending_grid, attacking_player_name):
-    print('Your move, {}.\n'.format(attacking_player_name))
-    print(defending_grid.get_partial_view())
-    print(attacking_grid.get_full_view())
+    print_grids(attacking_grid, defending_grid, attacking_player_name)
     x, y = parse_point(input('Attack: '))
-    defending_grid.attack(x, y)
-    # TODO: print whether hit or miss
-    # TODO: print which ship was hit
+    hit_ship = defending_grid.attack(x, y)
+    clear_screen()
+    print_grids(attacking_grid, defending_grid, attacking_player_name)
+    print(
+        'Hit. {}.'.format(hit_ship.capitalize()) if hit_ship is not None
+        else 'Miss.'
+    )
     defender_dead = defending_grid.is_dead()
     if defender_dead:
-        print('{} has won!'.format(attacking_player_name))
+        print('\n{} has won!'.format(attacking_player_name))
     else:
+        input('\nPress Enter to continue.')
         switch_players()
     return defender_dead
+
+
+def print_grids(attacking_grid, defending_grid, attacking_player_name):
+    print("{}'s turn.\n".format(attacking_player_name))
+    print(defending_grid.get_partial_view())
+    print(attacking_grid.get_full_view())
 
 
 def parse_point(inpt):
