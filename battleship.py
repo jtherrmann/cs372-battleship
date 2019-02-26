@@ -76,6 +76,7 @@ class Grid:
         return False
 
     def _grid_str(self, is_ocean_grid):
+        # TODO: refactor to avoid boolean parameter.
         lines = (self._get_line(row, is_ocean_grid) for row in range(10))
         return '  1 2 3 4 5 6 7 8 9 10\n' + ''.join(lines)
 
