@@ -182,3 +182,10 @@ Because I did not quite finish either of the user stories I'm working on, our
 velocity is now 6 user stories / 11.5 hr = 0.52 user stories / hour. Hopefully
 that number will increase after I finish off the current two in-progress user
 stories.
+*** 9:00 pm - 10:15 pm
+I continued working on the current in-progress user-stories but realized I was
+working more slowly than usual because I'm getting tired. Normally I would not
+necessarily stop working on a project for this reason alone, but when I am
+tracking my project velocity, I become more aware of when I'm working
+inefficiently. Perhaps that's another advantage of difficulty estimates and
+tracking project velocity.
