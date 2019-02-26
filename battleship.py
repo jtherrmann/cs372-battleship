@@ -184,5 +184,9 @@ def take_turn(attacking_grid, defending_grid):
     return defending_grid.is_dead()
 
 
+def parse_point(inpt):
+    pass
+
+
 if __name__ == '__main__':
     main()

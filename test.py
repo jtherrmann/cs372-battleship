@@ -15,11 +15,13 @@ from battleship import (
     Ship,
     ShipOffGridError,
     ShipsOverlapError,
-    parse_all_ships
+    parse_all_ships,
+    parse_point
 )
 
 
 class ParseTestCase(unittest.TestCase):
+    # TODO: test that parse functions raise exceptions for bad syntax
 
     def test_parse_all_ships(self):
         all_ships = parse_all_ships(
@@ -47,7 +49,17 @@ class ParseTestCase(unittest.TestCase):
         )
         self.assertEqual(all_ships, expected)
 
-    # TODO: test that parse_all_ships raises an exception for bad syntax
+    def test_parse_point(self):
+        self.assertEqual(parse_point('A1'), (0, 0))
+        self.assertEqual(parse_point('a1'), (0, 0))
+        self.assertEqual(parse_point('A3'), (2, 0))
+        self.assertEqual(parse_point('a3'), (2, 0))
+        self.assertEqual(parse_point('C1'), (0, 2))
+        self.assertEqual(parse_point('c1'), (0, 2))
+        self.assertEqual(parse_point('D5'), (4, 3))
+        self.assertEqual(parse_point('d5'), (4, 3))
+        self.assertEqual(parse_point('J10'), (9, 9))
+        self.assertEqual(parse_point('j10'), (9, 9))
 
 
 class GridTestCase(unittest.TestCase):
