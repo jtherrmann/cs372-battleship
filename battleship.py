@@ -51,11 +51,12 @@ class Grid:
         return all(ship.is_sunk() for ship in self._ships)
 
     def attack(self, x, y):
-        peg = Peg(
-            x, y, any(ship.is_hit(x, y) for ship in self._ships)
-        )
-        self._pegs.append(peg)
-        return peg.is_hit
+        for ship in self._ships:
+            if ship.is_hit(x, y):
+                self._pegs.append(Peg(x, y, True))
+                return True, ship.get_name()
+        self._pegs.append(Peg(x, y, False))
+        return False
 
     def add_ship(self, new_ship):
         self._validate_ship(new_ship)
@@ -129,6 +130,9 @@ class Ship:
         if equal:
             assert self._length == other._length
         return equal
+
+    def get_name(self):
+        return self._name
 
     def get_points(self):
         return (self._get_point(i) for i in range(self._length))
