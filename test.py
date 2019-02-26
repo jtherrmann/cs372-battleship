@@ -176,78 +176,78 @@ class GridTestCase(unittest.TestCase):
 class ShipTestCase(unittest.TestCase):
 
     def test_create_carrier(self):
-        aft_point = (4, 9)
+        stern_point = (4, 9)
         direction = EAST
         name = CARRIER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_battleship(self):
-        aft_point = (2, 9)
+        stern_point = (2, 9)
         direction = NORTH
         name = BATTLESHIP
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_cruiser(self):
-        aft_point = (4, 2)
+        stern_point = (4, 2)
         direction = WEST
         name = CRUISER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_submarine(self):
-        aft_point = (3, 5)
+        stern_point = (3, 5)
         direction = EAST
         name = SUBMARINE
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_destroyer(self):
-        aft_point = (7, 4)
+        stern_point = (7, 4)
         direction = NORTH
         name = DESTROYER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
-    def test_create_ship_with_aft_at_edge(self):
-        aft_point = (0, 2)
+    def test_create_ship_with_stern_at_edge(self):
+        stern_point = (0, 2)
         direction = EAST
         name = CRUISER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_vertical_ship_with_bow_at_edge(self):
-        aft_point = (0, 2)
+        stern_point = (0, 2)
         direction = NORTH
         name = CRUISER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
     def test_create_horizontal_ship_with_bow_at_edge(self):
-        aft_point = (4, 0)
+        stern_point = (4, 0)
         direction = WEST
         name = CARRIER
-        ship = Ship(aft_point, direction, name)
-        self.assertEqual(ship._aft_point, aft_point)
+        ship = Ship(stern_point, direction, name)
+        self.assertEqual(ship._stern_point, stern_point)
         self.assertEqual(ship._direction, direction)
         self.assertEqual(ship._name, name)
 
-    def test_aft_on_grid(self):
+    def test_stern_on_grid(self):
         with self.assertRaises(ShipOffGridError):
             Ship((-1, 5), WEST, SUBMARINE)
 

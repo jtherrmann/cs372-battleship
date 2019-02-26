@@ -109,8 +109,8 @@ class Ship:
         DESTROYER: 2
     }
 
-    def __init__(self, aft_point, direction, name):
-        self._aft_point = aft_point
+    def __init__(self, stern_point, direction, name):
+        self._stern_point = stern_point
         self._direction = direction
         self._name = name
         self._length = self._lengths[self._name]
@@ -119,7 +119,7 @@ class Ship:
 
     def __eq__(self, other):
         equal = (
-            self._aft_point == other._aft_point
+            self._stern_point == other._stern_point
             and self._direction == other._direction
             and self._name == other._name
             and self._hit_points == other._hit_points
@@ -142,7 +142,7 @@ class Ship:
         return self._hit_points == 0
 
     def _validate_location(self):
-        self._validate_point(self._aft_point)
+        self._validate_point(self._stern_point)
         self._validate_point(self._get_bow_point())
 
     def _validate_point(self, pair):
@@ -155,13 +155,13 @@ class Ship:
 
     def _get_point(self, offset):
         if self._direction == NORTH:
-            return self._aft_point[0], self._aft_point[1] - offset
+            return self._stern_point[0], self._stern_point[1] - offset
         if self._direction == SOUTH:
-            return self._aft_point[0], self._aft_point[1] + offset
+            return self._stern_point[0], self._stern_point[1] + offset
         if self._direction == EAST:
-            return self._aft_point[0] + offset, self._aft_point[1]
+            return self._stern_point[0] + offset, self._stern_point[1]
         if self._direction == WEST:
-            return self._aft_point[0] - offset, self._aft_point[1]
+            return self._stern_point[0] - offset, self._stern_point[1]
 
 
 def main():
