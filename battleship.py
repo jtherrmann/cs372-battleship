@@ -152,7 +152,7 @@ class Ship:
                 raise ShipOffGridError()
 
     def _get_bow_point(self):
-        return self._get_point(self._length)
+        return self._get_point(self._length - 1)
 
     def _get_point(self, offset):
         if self._direction == NORTH:
