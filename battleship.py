@@ -12,6 +12,7 @@ BATTLESHIP = 'battleship'
 CRUISER = 'cruiser'
 SUBMARINE = 'submarine'
 DESTROYER = 'destroyer'
+
 SHIP_NAMES = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
 
 
@@ -29,6 +30,10 @@ class ShipOffGridError(IllegalPositionError):
 
 
 class ShipsOverlapError(IllegalPositionError):
+    pass
+
+
+class PegExistsError(IllegalPositionError):
     pass
 
 
@@ -56,9 +61,9 @@ class Grid:
     def attack(self, x, y):
         for ship in self._ships:
             if ship.is_hit(x, y):
-                self._pegs.append(Peg(x, y, True))
+                self._add_peg(Peg(x, y, True))
                 return ship.get_name(), ship.is_sunk()
-        self._pegs.append(Peg(x, y, False))
+        self._add_peg(Peg(x, y, False))
 
     def add_ship(self, new_ship):
         self._validate_ship(new_ship)
@@ -103,6 +108,11 @@ class Grid:
 
     def _point_on_ship(self, x, y):
         return any((x, y) in ship.get_points() for ship in self._ships)
+
+    def _add_peg(self, peg):
+        if peg in self._pegs:
+            raise PegExistsError()
+        self._pegs.append(peg)
 
 
 class Ship:
