@@ -184,7 +184,7 @@ class Ship:
 
 
 def main():
-    display_welcome()
+    clear_on_enter('Welcome to Battleship!')
     player1_name, player2_name = 'Player 1', 'Player 2'
     grid1, grid2 = Grid(), Grid()
     configure_ships(grid1, player1_name)
@@ -194,14 +194,6 @@ def main():
             break
         if take_turn(grid2, grid1, player2_name):
             break
-
-
-def display_welcome():
-    clear_on_enter('Welcome to Battleship!')
-
-
-def switch_players():
-    clear_on_enter('Please switch players.')
 
 
 def clear_on_enter(msg):
@@ -278,7 +270,7 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
         print('\n{} has won!'.format(attacking_player_name))
     else:
         input('\nPress Enter to continue.')
-        switch_players()
+        clear_on_enter('Please switch players.')
 
     return defender_dead
 
