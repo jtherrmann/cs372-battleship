@@ -189,3 +189,42 @@ necessarily stop working on a project for this reason alone, but when I am
 tracking my project velocity, I become more aware of when I'm working
 inefficiently. Perhaps that's another advantage of difficulty estimates and
 tracking project velocity.
+** Tue Feb 26
+*** Morning and afternoon
+So far I've worked:
+- 10:10 am - 10:35 am
+- 11:00 am - 12:10 pm
+- 12:30 pm - 12:45 pm
+- 3:20 pm - 4:00 pm
+  
+For a total of 2.5 hours.
+
+I finally finished the user stories for the text-based, single-computer,
+two-player interface, which I suppose concludes our first "sprint". That's an
+overall velocity of 8 user stories / 15.25 hr = 0.52 user stories / hour. Our
+overall target velocity for the sprint was 8 user sories / 11 hours = 0.73 user
+stories / hour. (We ran over our total time estimate by 4.25 hr.)
+
+It seems as though the last two user stories took longer than expected. I think
+there were a few reasons for this. First, though I still believe that manually
+testing the text-based interface was faster than writing IO-mocking tests would
+have been, it nevertheless took a lot longer than the simple automated tests
+that we've been able to write for the previous user stories.
+
+And second, writing a UI and enabling two-player gameplay brought all of the
+previous user stories and their associated game components together and exposed
+things that we had overlooked as part of previous user stories. So as part of
+writing the UI I also had to modify some of our existing tests and add new
+behavior in order to produce a fully functional, two-player game. But while
+doing so, I really appreciated that we had such tests in the first place,
+because it made it much easier to make these modifications without breaking
+existing features.
+
+I added a new user story for better error handling because currently the game
+just aborts when it detects an error in user input. Ideally I would have liked
+to include good error handling in the UI before marking the user story as
+complete, but I was aware that we were already running over the total time
+estimated for our 8-user-story "sprint", and I felt like the most appropriate
+thing to do in this situation was to get the product into a correct, working
+state, present it to the product owners / players, and allow them to create
+more user stories for any features they felt needed improvement.
