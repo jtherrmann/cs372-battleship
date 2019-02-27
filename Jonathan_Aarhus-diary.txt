@@ -16,3 +16,13 @@ We've also established the we can meet in persion to do pair programming on Tues
 as the weekends. By my estimation we would need to work together for at least an hour ber session to meet our
 requirements.
 
+February 12 to Februaru 27
+
+We met on the 14th for an hour to discuss our general plan for the project. Then we met on the 16th for an hour and a half to do
+our first pair programming session. We began by wrighting tests to cover the first user story. On the 21st I spent about 2 hours on 
+my own studying python for the projects, and on the same day we met for about 2 hours to finish the first user story.
+We also met on the 22nd for an hour to do some more pair programming. On the 27th we met for a half hour to prepare for the
+presentation.
+
+ 
+
