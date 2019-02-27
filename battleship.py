@@ -2,6 +2,12 @@ import sys
 from collections import namedtuple
 
 
+# TODO:
+# - use static methods where appropriate
+# - use namedtuples for points
+# - split into multiple modules
+
+
 NORTH = 'N'
 SOUTH = 'S'
 EAST = 'E'
@@ -15,10 +21,6 @@ DESTROYER = 'destroyer'
 
 SHIP_NAMES = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
 
-
-# TODO:
-# - use static methods
-# - use namedtuples for points
 
 
 class BattleshipError(Exception):
