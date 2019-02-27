@@ -183,33 +183,6 @@ class Ship:
             return self._stern_point[0] - offset, self._stern_point[1]
 
 
-def main():
-    clear_on_enter('Welcome to Battleship!')
-    player1_name, player2_name = 'Player 1', 'Player 2'
-    grid1, grid2 = Grid(), Grid()
-    configure_ships(grid1, player1_name)
-    configure_ships(grid2, player2_name)
-    while True:
-        if take_turn(grid1, grid2, player1_name):
-            break
-        if take_turn(grid2, grid1, player2_name):
-            break
-
-
-def clear_on_enter(msg):
-    clear_screen()
-    input('{} Press Enter to continue.'.format(msg))
-    clear_screen()
-
-
-def clear_screen():
-    # TODO: does this method work on any POSIX system? (os.name == 'posix')
-    if sys.platform == 'linux':
-        print('\033c')
-    else:
-        print('\nWarning: cannot clear screen on non-Linux platforms.\n\n')
-
-
 def configure_ships(grid, player_name):
     print(
         "A ship configuration is a comma-separated list of five ships, where\n"
@@ -225,25 +198,6 @@ def configure_ships(grid, player_name):
     for ship in all_ships:
         grid.add_ship(ship)
     clear_screen()
-
-
-def parse_all_ships(inpt):
-    points_and_directions = inpt.split(',')
-    assert len(points_and_directions) == len(SHIP_NAMES)
-    return tuple(
-        parse_ship(point_and_direction, ship_name)
-        for point_and_direction, ship_name in
-        zip(points_and_directions, SHIP_NAMES)
-    )
-
-
-def parse_ship(point_and_direction, ship_name):
-    values = point_and_direction.split()
-    assert len(values) == 2
-    point = parse_point(values[0])
-    direction = values[1].upper()
-    assert direction in (NORTH, SOUTH, EAST, WEST)
-    return Ship(point, direction, ship_name)
 
 
 def take_turn(attacking_grid, defending_grid, attacking_player_name):
@@ -282,6 +236,25 @@ def print_grids(attacking_grid, defending_grid, attacking_player_name):
     print(attacking_grid.ocean_grid_str())
 
 
+def parse_all_ships(inpt):
+    points_and_directions = inpt.split(',')
+    assert len(points_and_directions) == len(SHIP_NAMES)
+    return tuple(
+        parse_ship(point_and_direction, ship_name)
+        for point_and_direction, ship_name in
+        zip(points_and_directions, SHIP_NAMES)
+    )
+
+
+def parse_ship(point_and_direction, ship_name):
+    values = point_and_direction.split()
+    assert len(values) == 2
+    point = parse_point(values[0])
+    direction = values[1].upper()
+    assert direction in (NORTH, SOUTH, EAST, WEST)
+    return Ship(point, direction, ship_name)
+
+
 def parse_point(inpt):
     row_letter = inpt[0].upper()
     y = ord(row_letter) - 65
@@ -292,6 +265,33 @@ def parse_point(inpt):
     assert 0 <= x <= 9
 
     return x, y
+
+
+def clear_on_enter(msg):
+    clear_screen()
+    input('{} Press Enter to continue.'.format(msg))
+    clear_screen()
+
+
+def clear_screen():
+    # TODO: does this method work on any POSIX system? (os.name == 'posix')
+    if sys.platform == 'linux':
+        print('\033c')
+    else:
+        print('\nWarning: cannot clear screen on non-Linux platforms.\n\n')
+
+
+def main():
+    clear_on_enter('Welcome to Battleship!')
+    player1_name, player2_name = 'Player 1', 'Player 2'
+    grid1, grid2 = Grid(), Grid()
+    configure_ships(grid1, player1_name)
+    configure_ships(grid2, player2_name)
+    while True:
+        if take_turn(grid1, grid2, player1_name):
+            break
+        if take_turn(grid2, grid1, player2_name):
+            break
 
 
 if __name__ == '__main__':
