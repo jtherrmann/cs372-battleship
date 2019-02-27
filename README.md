@@ -50,6 +50,19 @@ User stories, from highest to lowest priority:
 
 ### TODO
 
+- As a player, I would like to see better error handling.
+  - 2 hr.
+  - As players / project owners we would like to see improvements to the
+    textual interface's current error handling abilities. Rather than simply
+    abort when the game identifies an error in the user's input, the interface
+    should notify the user with a descriptive message and allow the user to
+    re-enter the input.
+  - We would also like the game to do its best to detect bugs (including
+    uncaught exceptions) and allow the user to send bug reports to the
+    developers.
+  - As developers, we like these ideas because they will make the game easier
+    to test and debug. We believe this user story will be fairly
+    straightforward to implement.
 - As a player, I want to play against a remote opponent.
   - 8 hr.
   - As players / project owners we would eventually like to be able to play
