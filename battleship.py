@@ -175,7 +175,6 @@ class Ship:
 
 def main():
     # TODO:
-    # - error handling
     # - test playing a game all the way through
     display_welcome()
     player1_name, player2_name = 'Player 1', 'Player 2'
@@ -296,4 +295,8 @@ def parse_point(inpt):
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (IllegalPositionError, AssertionError) as e:
+        print('\nUncaught exception: {}'.format(type(e).__name__))
+        print('\nAbort.')
