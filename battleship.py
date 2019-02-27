@@ -21,19 +21,19 @@ SHIP_NAMES = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
 # - use namedtuples for points
 
 
-class IllegalPositionError(Exception):
+class BattleshipError(Exception):
     pass
 
 
-class ShipOffGridError(IllegalPositionError):
+class ShipOffGridError(BattleshipError):
     pass
 
 
-class ShipsOverlapError(IllegalPositionError):
+class ShipsOverlapError(BattleshipError):
     pass
 
 
-class PegExistsError(IllegalPositionError):
+class PegExistsError(BattleshipError):
     pass
 
 
@@ -307,6 +307,6 @@ def parse_point(inpt):
 if __name__ == '__main__':
     try:
         main()
-    except (IllegalPositionError, AssertionError) as e:
+    except (BattleshipError, AssertionError) as e:
         print('\nUncaught exception: {}'.format(type(e).__name__))
         print('\nAbort.')
