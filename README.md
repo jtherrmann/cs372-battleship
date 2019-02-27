@@ -1,4 +1,8 @@
-# CS 372 Battleship
+# Battleship
+
+CS 372 Spring 2019  
+Jake Herrmann  
+Jonathan Aarhus
 
 ## User stories
 
