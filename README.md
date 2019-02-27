@@ -49,7 +49,7 @@ User stories, from highest to lowest priority:
 
 ### TODO
 
-- As a player, I would like to see better error handling.
+- As a player, I want better error handling.
   - 2 hr.
   - As players / project owners we would like to see improvements to the
     textual interface's current error handling abilities. Rather than simply
