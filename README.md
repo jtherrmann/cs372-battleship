@@ -35,9 +35,6 @@ User stories, from highest to lowest priority:
     that have been made on my grid, but I should only be able to see the hits
     and misses that have been made on my opponent’s grid (but not their ship
     configuration).
-
-### In progress
-
 - As a player, I want a text-based interface in order to test these features.
   - ~~1 hr.~~ 4 hr.
   - As players / project owners, we are most interested in seeing a working
