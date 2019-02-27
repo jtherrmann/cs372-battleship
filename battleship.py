@@ -21,6 +21,7 @@ DESTROYER = 'destroyer'
 
 SHIP_NAMES = (CARRIER, BATTLESHIP, CRUISER, SUBMARINE, DESTROYER)
 
+Peg = namedtuple('Peg', ('x', 'y', 'is_hit'))
 
 
 class BattleshipError(Exception):
@@ -37,9 +38,6 @@ class ShipsOverlapError(BattleshipError):
 
 class PegExistsError(BattleshipError):
     pass
-
-
-Peg = namedtuple('Peg', ('x', 'y', 'is_hit'))
 
 
 class Grid:
