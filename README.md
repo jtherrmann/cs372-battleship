@@ -4,6 +4,9 @@ CS 372 Spring 2019
 Jake Herrmann  
 Jonathan Aarhus
 
+Also see the [presentation
+slides](https://docs.google.com/presentation/d/1BKJ_i9UD6fnNHJUTGSCa7AL1vhIJCKqcgxqHW-oogl0/edit?usp=sharing).
+
 ## User stories
 
 User stories, from highest to lowest priority:
