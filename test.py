@@ -15,6 +15,7 @@ from battleship import (
     Ship,
     ShipOffGridError,
     ShipsOverlapError,
+    PegExistsError,
     parse_all_ships,
     parse_point
 )
@@ -131,6 +132,16 @@ class GridTestCase(unittest.TestCase):
              Peg(5, 5, False),
              Peg(7, 5, False)]
         )
+
+    def test_peg_exists(self):
+        grid = Grid()
+        grid.add_ship(Ship((0, 0), EAST, SUBMARINE))
+        grid.attack(0, 0)
+        with self.assertRaises(PegExistsError):
+            grid.attack(0, 0)
+        grid.attack(5, 5)
+        with self.assertRaises(PegExistsError):
+            grid.attack(5, 5)
 
     def test_total_sunk(self):
         grid = Grid()
