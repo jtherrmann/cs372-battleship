@@ -184,8 +184,6 @@ class Ship:
 
 
 def main():
-    # TODO:
-    # - test playing a game all the way through
     display_welcome()
     player1_name, player2_name = 'Player 1', 'Player 2'
     grid1, grid2 = Grid(), Grid()
