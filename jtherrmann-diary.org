@@ -228,3 +228,8 @@ estimated for our 8-user-story "sprint", and I felt like the most appropriate
 thing to do in this situation was to get the product into a correct, working
 state, present it to the product owners / players, and allow them to create
 more user stories for any features they felt needed improvement.
+*** 4:20 pm - 5:20 pm
+I cleaned up the code a bit, e.g. moved some comments and function definitions.
+Then I played the game all the way through just to make sure everything works
+as expected. Hopefully I won't need to make further changes to portions of the
+code that aren't covered by automated tests.
