@@ -31,10 +31,9 @@ User stories, from highest to lowest priority:
   - A player should lose when all of their ships have been sunk.
 - As a player, I want to check the current status of the game.
   - 1 hr.
-  - I should be able to see my own ship configuration and the hits and misses
-    that have been made on my grid, but I should only be able to see the hits
-    and misses that have been made on my opponent’s grid (but not their ship
-    configuration).
+  - I should be able to see my own ship configuration and the hits that have
+    been made on my grid, and the hits and misses that have been made on my
+    opponent’s grid (but not their ship configuration).
 - As a player, I want a text-based interface in order to test these features.
   - ~~1 hr.~~ 4 hr.
   - As players / project owners, we are most interested in seeing a working
