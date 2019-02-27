@@ -1,6 +1,6 @@
 # CS 372 Battleship
 
-## Initial requirements
+## User stories
 
 User stories, from highest to lowest priority:
 
