@@ -224,7 +224,7 @@ def take_turn(attacking_grid, defending_grid, attacking_player_name):
         print('\n{} has won!'.format(attacking_player_name))
     else:
         input('\nPress Enter to continue.')
-        clear_on_enter('Please switch players.')
+        clear_and_wait('Please switch players.')
 
     return defender_dead
 
@@ -267,7 +267,7 @@ def parse_point(inpt):
     return x, y
 
 
-def clear_on_enter(msg):
+def clear_and_wait(msg):
     clear_screen()
     input('{} Press Enter to continue.'.format(msg))
     clear_screen()
@@ -282,7 +282,7 @@ def clear_screen():
 
 
 def main():
-    clear_on_enter('Welcome to Battleship!')
+    clear_and_wait('Welcome to Battleship!')
     player1_name, player2_name = 'Player 1', 'Player 2'
     grid1, grid2 = Grid(), Grid()
     configure_ships(grid1, player1_name)
