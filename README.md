@@ -2,8 +2,8 @@
 
 Jake Herrmann\
 Jonathan Aarhus\
-CS 372 Spring 2019\
-Software Construction
+CS 372: Software Construction\
+Spring 2019
 
 Also see the [presentation
 slides](https://docs.google.com/presentation/d/1BKJ_i9UD6fnNHJUTGSCa7AL1vhIJCKqcgxqHW-oogl0/edit?usp=sharing).
